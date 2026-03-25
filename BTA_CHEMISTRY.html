@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="EN-US">
+<head>
+    
+<meta "charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WAEC Chemistry Past Questions!">
+<meta name="author" content="Emmanuel Asiamah Amponsah">
+<meta name="keywords" content="Asiamah, Emmanuel, Amponsah">
+
+
+ <title>Bush Teaching Assistant</title>
+
+ <style>
+
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 50px;
+            background-color: #f9f9f9;
+        }
+
+        #questions {
+            text-align:left; 
+            font-size: 1.5em;
+            color: #e74c3c;
+            margin: 40px 0;
+            min-height: 80px;
+        }
+
+
+        #answer{
+
+            font-size: 1.5em;
+            color: #e74c3c;
+            margin: 1px 0;
+            min-height: 0px;
+            text-align: center;
+
+        }
+
+        button {
+            padding: 15px 40px;
+            font-size: 1.6em;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #next{
+            background: #3498db;
+            color: white;
+
+        
+        #next:hover{
+            background: #2980b9;
+            color: #white;
+        }
+
+
+        #show{
+            background: #e67e22;
+            color: white;
+        }
+
+
+        
+        #show:hover{
+            background: #d35400;
+          
+        }
+
+
+     .a1:link {
+	background-color:#ffffff;
+	border:1px solid rgba(0,50,0,0.9);
+	border-radius:10px;
+	border-block-end:2px solid;
+	color:#0000ff;
+	transition:0.2s;
+	text-align: center;
+	text-decoration:underline;
+	display: inline-block;
+        }
+ 
+     .a1:visited {
+	background-color: #D7D7D7;
+	border:1px solid rgba(40,40,40,0.9);
+	color:#666666;
+	text-align: center;
+	text-decoration:underline;
+	text-decoration-color:#8555AA;
+	display: inline-block;
+        }	
+
+
+     .a1:hover {
+	 background-color: #3D0000;
+	 border:1px solid rgba(100,150,100,0.9);
+	 color:#ffffff;
+	 cursor: pointer;
+	 text-decoration:underline;
+	 text-decoration-color:white;
+	 
+	 
+        }	 
+
+    .a1:active {
+	 background-color: red;
+        }
+
+
+    #footer{
+        background-color:#043e4d;
+        margin-bottom:0;
+        padding:10px;
+        text-align:center;
+        color:white;
+        bottom:0;
+        width:100%;
+        font-size:14px;
+
+
+</style>
+
+</head>
+
+<body>
+    <h1 style="background-color:black; color: white; font-size: 50px">Welcome to Bush Teaching Assistant!</h1><br>
+
+    <h1 style="text-decoration:underline">Announcement for 2 SCIENCE 7,8,9.10,11</h1>
+
+  
+    <h2>Answer the following questions on a sheet of paper. Take snapshot of it and send to 
+ <a href= "https://wa.me/233554454161" target="__blank" ">me</a></h2><br><br>
+ 
+
+<h1 id="quest">QUESTION</h1>
+
+    <div id="questions">Loading...</div>
+
+    <div id="answer"></div>
+
+    <button id="show">Check Answer</button>
+
+<button id="next">Next →</button><br><br><br>
+
+<a class=a1 href= "https://wa.me/233554454161" target="__blank" ">CLICK TO SEND YOUR ANSWERS TO BUSH</a><br><br>
+
+<a class=a1 href ="page3.html">Go back<<</a>
+
+<a class=a1 href ="index.html">Back to Home Page</a>
+
+
+
+    <script>
+
+        let question = [];
+        let index = 0;
+
+        fetch("https://bta-330.onrender.com/question_answer_pair")
+           
+            .then(res => res.json())
+            .then(data => {
+                question = data.questions;
+
+                if (question.length > 0) 
+
+                    showQuestion();
+            })
+                
+
+
+            .catch(err => {
+                console.log('Error:', err);
+                document.getElementById('questions').textContent = "Click button below to show question";
+            });
+
+
+        function showQuestion(){
+            document.getElementById('questions').textContent=question[index][0];
+            document.getElementById('answer').textContent="";
+            document.getElementById('answer').style.display="none";
+            }
+
+
+        document.getElementById('next').onclick=()=>{
+            index=(index+1) % question.length;
+            showQuestion();
+            };  
+
+
+
+        document.getElementById('show').onclick=() => {
+            if (question.length > 0) {
+               document.getElementById('answer').textContent=question[index][1];
+               document.getElementById('answer').style.display="block";
+            }
+          };
+
+  </script>
+
+<footer id="footer">
+<p>This website is designed and owned by Emmanuel Asiamah..@EAA software...</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+
+*{
+box-sizing:border box;
+}
+
+
+
+body{
+background:linear-gradient(to right, #0011bb, #ff5500);
+background-color:rgba(0,0,100,0.1);	
+margin:0;
+padding:10px;
+font-size:25px;	
+font-family:"Open Sans", sans-serif;
+line-height:1.5;
+color:#202020;
+
+}
+
+
+header {
+margin-top:0;	
+background-color:#000000;
+font-size:2em;
+padding:20px;
+text-align:center;
+color:white;
+}
+
+
+nav{
+float:"right";	
+display:flex;
+width:100%;
+background:#CCC;
+padding:10px;
+justify-content:space-between;
+align-items:center;
+
+
+}
+
+
+nav ul{
+list-style-type:none;
+padding:0;
+margin:0;
+display:flex;
+gap:15px;
+text-decoration:none;
+color:blue;
+space-between:space-around;
+}
+
+article{
+margin-top:0px;	
+display:block;
+padding:2px;
+width:80%;
+background-color:white;
+max-height:100%;
+margin:0 auto
+}
+
+
+aside {
+	
+	padding-left:15px;
+	margin-left:15px;
+	float:right;
+	font-style:italic;    	
+	width:100%;
+	background-color:lightgrey;
+	
+    }
+
+
+
+section::after{
+content:"";
+display:table;
+clear:both;
+}
+
+
+footer{
+background-color:#043e4d;
+margin-bottom:0;
+padding:10px;
+text-align:center;
+color:white;
+bottom:0;
+width:100%;
+font-size:14px;
+
+}
+
+
+
+@media screen and (max-width: 600px){
+.nav, .article, .footer, .section{
+width:100%;
+height:auto;
+padding:0;
+margin:0;
+}
+
+}
+
+@media screen and (min-width: 600px ){
+.nav, .article, .footer, .section{
+display:flex;
+flex-direction:row;
+justify-content:space-between;	
+width:100%;
+height:auto;
+padding:0;
+margin:0;
+}
+
+}
+
+
+.button {
+	color:red;
+	font-size:15px;
+	padding:12px;
+	border-radius:5px;
+	cursor:pointer;
+    }
+
+
+
+.italize {
+	font-style:italic;
+	text-decoration:underline;
+    }
+
+.underline {
+	text-decoration:underline;
+    }
+
+.p1 { 
+    margin-top:0px;
+	color:black !important;
+	background-color:rgba(255,255,,255, 0.3);
+	border:0px;
+	text-align:justify;
+    }
+	
+
+
+.h1 {
+	margin-top:5px;
+    background-color:rgba(0,0,0,0.7);
+	background-size:80% auto;
+	border:2px;
+	color:rgb(255,255,255); 	
+	font-size:2em; 
+	text-align:center;
+	}
+
+.h2 {
+	text-align:center;
+    }
+	
+	
+.h3 {
+     text-align:center;
+    }	 
+
+
+
+.p2 {
+	border:px;
+	color:#ffffff;
+	background:#001e4e;
+	text-align:justify;
+	margin-bottom:0;
+	}
+
+
+.p3 {
+	color:red;
+	text-align:justify;
+	}
+	
+	
+.p4 {
+   	color:#ffffff;
+	
+    }
+	
+.sc{
+	color:red;
+    }
+
+
+.BTA_logo_aboutpage {
+	filter:1.2;
+	border-radius:5px;    	
+	height:100px;
+	width:200px;
+    }
+
+
+
+.header_contactpage {
+	display: flex;
+	align-items:center;
+	height:1px;
+	}
+
+
+.video_wrapper{
+	margin-top:0;
+	display:flex;
+	justify-content:center;
+	position:relative;
+	background:#000;
+	margin-top:0;
+	object-fit:cover;
+    }
+
+
+	
+.a1:link {
+	background-color:#ffffff;
+	border:1px solid rgba(0,50,0,0.9);
+	border-radius:10px;
+	border-block-end:2px solid;
+	color:#0000ff;
+	transition:0.2s;
+	text-align: center;
+	text-decoration:underline;
+	display: inline-block;
+    }
+ 
+.a1:visited {
+	background-color: #D7D7D7;
+	border:1px solid rgba(40,40,40,0.9);
+	color:#666666;
+	text-align: center;
+	text-decoration:underline;
+	text-decoration-color:#8555AA;
+	display: inline-block;
+    }
+
+
+.a1:hover {
+	 background-color: #3D0000;
+	 border:1px solid rgba(100,150,100,0.9);
+	 color:#ffffff;
+	 cursor: pointer;
+	 text-decoration:underline;
+	 text-decoration-color:white;
+	 
+	 
+    }	 
+
+.a1:active {
+	 background-color: red;
+    }
+
+
+
+
+.a2:link {
+	background-color:white;
+	border:1px solid rgba(0,50,50,0.9);
+    border-radius:10px;
+	color:#ff0000;
+	transition:0.2s;
+	text-align: center;
+	display: inline-block;
+    }
+ 
+.a2:visited {
+	background-color:#D7D7D7;
+	border:1px solid rgba(40,40,40,0.9);
+	color:#666666;
+	text-align: center;
+	text-decoration-color:#8555AA;
+	display: inline-block;
+    }
+
+
+.a2:hover {
+	 background-color:#3D0000;
+	 border:1px solid rgba(100,150,100,0.9);
+	 color:#ff0000;
+	 cursor: pointer;
+	 text-decoration-color:white;
+	 
+	 
+    }	 
+
+.a2:active{
+	 background-color:red;
+    }
+
+
+.a3:link {
+	background-color:white;
+	border:1px solid rgba(0,50,50,0.9);
+    border-radius:5px;
+	color:#0000ff;
+	transition:0.2s;
+	text-align: center;
+	display: inline-block;
+    }
+ 
+.a3:visited {
+	background-color:#D7D7D7;
+	border:1px solid rgba(40,40,40,0.9);
+	color:#666666;
+	text-align: center;
+	text-decoration-color:#8555AA;
+	display: inline-block;
+    }
+
+
+.a3:hover {
+	 background-color:#3D0000;
+	 border:1px solid rgba(100,150,100,0.9);
+	 color:#ffffff;
+	 cursor: pointer;
+	 text-decoration-color:white;
+     }
+	 
+	 
+.a3:active{
+	 background-color:red;
+     }

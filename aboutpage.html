@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>About Bush Teaching Assistant</title>
+
+<link rel="stylesheet" href="CSS/Bushstyles.css"></link>
+ 
+<meta name="charset:UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="WAEC Chemistry Past Questions!">
+<meta name="author" content="Emmanuel Asiamah Amponsah">
+<meta name="keywords" content="bush application tool, chemistry, examination, teaching assistant, standard">
+
+
+
+<script>
+
+function bushfunction()
+{
+var bush1=document.getElementById("my_java2")
+bush1.innerHTML="BTA...the educators' companion!";
+}
+
+</script>
+
+
+<noscript style=colour:"red"> JavaScript is disabled in your browser!</noscript>
+
+</head>
+
+
+<body>
+
+
+<h2 class=h1><b>About this Website</b></h2>
+
+
+ <article>
+<p class=p1> <img class=BTA_logo_aboutpage src="images/BTA_new_logo.jpeg" alt="App logo" >This website gives access to<abbr title="BushEM Teaching Assistant"><b>
+BTA</abbr> Application tool</b> used by learners and teachers in their learning and teaching process. 
+The application helps <b class=italize>review</b> and also <b class=italize>sets</b> standard examination questions
+for candidates and/or for class discussion.<span class=red_font><abbr title="BushEM Teaching Assistant"><b> 
+BTA</b></abbr> is essential for students preparing for any major academic or promotional examination.
+</span><span class=italize> This App is <b class=underline>subject specific</b> 
+and becomes relevant in any academic subject or course within the Ghanaian curriculum.</span></p>
+</article>
+
+
+<p class=p2>Soon you will be able to <b>download</b> BTA for all subjects in Ghana Senior 
+high school curriculum and for all tertiary courses !</p>
+
+
+<div class=video_wrapper style="text-align:center">
+
+<video id="myvideo" class=video1 width=720 height=400 controls autoplay muted loop>
+<source src="video/bta.mp4" type="video/mp4">Your browser does not support HTML video.>
+</video>
+
+</div>
+
+<div style="text-align:center">
+<button type="button" onclick="playPause()">Play/Pause</button>
+<button type="button" onclick="makebig()">Big</button>
+<button type="button" onclick="makenormal()">Normal</button>
+<button type="button" onclick="makesmall()">Small</button>
+</div>
+
+<script>
+
+var bush2=document.getElementById("myvideo");
+
+function playPause()
+{
+    if (bush2.paused)
+      bush2.play();
+   
+    else    
+      bush2.pause();    
+}   
+
+function makebig()
+{
+   bush.width=1020;
+   height=400;
+}
+
+function makenormal()
+{
+   bush.width=720;
+   height=400;
+}
+
+function makesmall()
+{
+   bush.width=600;
+   height=400;
+}
+
+</script>
+
+
+<noscript style=colour:"red"> JavaScript is disabled in your browser!</noscript>
+
+
+<nav>
+   <a class=a1 href ="index.html">Back to Home Page</a>
+
+   <a class=a1 href ="page3.html">Choose your Programme</a>
+
+   <p id="my_java2">Click on button to test JavaScript</p>
+
+   <button class=button type="button" onclick="bushfunction()">Click me</button>
+</nav>
+
+<footer>
+<p>This website is designed and owned by Emmanuel Asiamah..@EAA software...</p>
+</footer>
+
+
+
+
+
+</body>
+</html>
