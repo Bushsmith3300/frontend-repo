@@ -188,16 +188,18 @@ justify-content:space-between;
 	}
 
 
-.video_wrapper{
-	margin-top:0;
-	display:flex;
-	justify-content:center;
-	position:relative;
-	background:#000;
-	margin-top:0;
-	object-fit:cover;
-    }
+.video_wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400px; /* fixed height for the video wrapper */
+    background: #000; /* optional, so you see the video area clearly */
+}
 
+video {
+    max-width: 100%;
+    height: auto; /* keep the aspect ratio of the video */
+}
 
 	
 .a1:link {
