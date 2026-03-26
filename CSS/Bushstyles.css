@@ -36,29 +36,7 @@ color:white;
     height: 100px;            /* optional, only if you want vertical centering */
 }
 
-nav{
-float:right;	
-display:flex;
-width:100%;
-background:#CCC;
-padding:10px;
-justify-content:space-between;
-align-items:center;
 
-
-}
-
-
-nav ul{
-list-style-type:none;
-padding:0;
-margin:0;
-display:flex;
-gap:15px;
-text-decoration:none;
-color:blue;
-space-between:space-around;
-}
 
 article{
 margin-top:0px;	
