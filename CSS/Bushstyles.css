@@ -284,6 +284,7 @@ justify-content:space-between;
     border-radius: 8px;
     transition: all 0.3s ease;
     cursor: pointer;
+}
 
 	
 .a3:link {
@@ -297,15 +298,6 @@ justify-content:space-between;
     box-shadow: 0 0 12px #ff5500, 0 0 24px #ff5500;
 }
 
-/* -------------------------
-   Hover effect
-   ------------------------- */
-.a3:hover {
-    background: linear-gradient(45deg, #ff5500, #0011bb);
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
 
 /* -------------------------
    Active (click) effect
@@ -316,11 +308,3 @@ justify-content:space-between;
     box-shadow: none;
 }
 
-/* -------------------------
-   Keyframes for animated gradient
-   ------------------------- */
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
