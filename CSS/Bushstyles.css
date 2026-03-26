@@ -238,39 +238,30 @@ justify-content:space-between;
 
 
 
-.a2:link {
-	background-color:white;
-	border:1px solid rgba(0,50,50,0.9);
-    border-radius:10px;
-	color:#ff0000;
-	transition:0.2s;
-	text-align: center;
-	display: inline-block;
-    }
- 
-.a2:visited {
-	background-color:#D7D7D7;
-	border:1px solid rgba(40,40,40,0.9);
-	color:#666666;
-	text-align: center;
-	text-decoration-color:#8555AA;
-	display: inline-block;
-    }
-
+.a2 {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #ffffff; /* clean white background */
+    color: #333333; /* dark text for contrast */
+    border: 2px solid #ddd; /* subtle border */
+    border-radius: 6px; /* soft rounded corners */
+    text-decoration: none; /* remove underline */
+    font-family: 'Open Sans', sans-serif;
+    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
 
 .a2:hover {
-	 background-color:#3D0000;
-	 border:1px solid rgba(100,150,100,0.9);
-	 color:#ff0000;
-	 cursor: pointer;
-	 text-decoration-color:white;
-	 
-	 
-    }	 
+    background-color: #f0f0f0; /* light gray on hover */
+    color: #000; /* dark text on hover */
+    transform: translateY(-2px); /* subtle lift */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* soft shadow on hover */
+}
 
-.a2:active{
-	 background-color:red;
-    }
+.a2:active {
+    transform: translateY(0); /* back to normal on click */
+    box-shadow: none;
+}
+
 
 
 .a3:link,
