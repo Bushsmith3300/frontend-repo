@@ -290,7 +290,7 @@ justify-content:space-between;
    Unvisited links with animated gradient
    ------------------------- */
 .a3:link {
-    background-color: #0011bb;
+    background-color: #1111bb;
     color: #ffffff;
     box-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
 }
