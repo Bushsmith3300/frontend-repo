@@ -20,8 +20,6 @@ body {
 }
 
 
-
-
 header {
 margin-top:0;	
 background-color:#000000;
@@ -31,6 +29,12 @@ text-align:center;
 color:white;
 }
 
+.link-wrapper {
+    display: flex;
+    justify-content: center;  /* horizontal centering */
+    align-items: center;      /* vertical centering if the div has height */
+    height: 100px;            /* optional, only if you want vertical centering */
+}
 
 nav{
 float:"right";	
