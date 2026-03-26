@@ -84,6 +84,8 @@ clear:both;
 
 
 footer{
+position:fixed;
+bottom:0;
 background-color:#043e4d;
 margin-bottom:0;
 padding:10px;
