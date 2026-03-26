@@ -307,35 +307,54 @@ margin:0;
     }
 
 
-.a3:link {
-	background-color:white;
-	border:1px solid rgba(0,50,50,0.9);
-    border-radius:5px;
-	color:#0000ff;
-	transition:0.2s;
-	text-align: center;
-	display: inline-block;
-    }
- 
+.a3:link,
 .a3:visited {
-	background-color:#D7D7D7;
-	border:1px solid rgba(40,40,40,0.9);
-	color:#666666;
-	text-align: center;
-	text-decoration-color:#8555AA;
-	display: inline-block;
-    }
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;      /* removes underline */
+    font-weight: 600;
+    font-family: "Open Sans", sans-serif;
+    padding: 10px 20px;         /* gives “button-like” spacing */
+    border: 2px solid rgba(0,50,50,0.8);
+    border-radius: 8px;         /* smooth corners */
+    transition: all 0.3s ease;  /* smooth hover/active animations */
+    cursor: pointer;
+}
 
+/* -------------------------
+   Normal (unvisited) state
+   ------------------------- */
+.a3:link {
+    background-color: #ffffff;
+    color: #0066cc;             /* blue text */
+}
 
+/* -------------------------
+   Visited links
+   ------------------------- */
+.a3:visited {
+    background-color: #f0f0f0;
+    color: #555555;             /* darker gray text */
+    border-color: rgba(80,80,80,0.8);
+}
+
+/* -------------------------
+   Hover effect
+   ------------------------- */
 .a3:hover {
-	 background-color:#3D0000;
-	 border:1px solid rgba(100,150,100,0.9);
-	 color:#ffffff;
-	 cursor: pointer;
-	 text-decoration-color:white;
-     }
-	 
-	 
-.a3:active{
-	 background-color:red;
-     }
+    background-color: #0066cc;  /* blue fill */
+    color: #ffffff;             /* white text */
+    border-color: #004080;      /* darker border */
+    transform: translateY(-2px); /* subtle lift */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* soft shadow */
+}
+
+/* -------------------------
+   Active (clicked) state
+   ------------------------- */
+.a3:active {
+    background-color: #004080;  /* darker blue */
+    border-color: #002244;
+    transform: translateY(0);   /* back to normal position */
+    box-shadow: none;
+}
