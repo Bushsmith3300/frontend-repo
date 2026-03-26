@@ -23,6 +23,12 @@ body {
     background: linear-gradient(to right, #0011bb, #ff5500);
 }
 
+.nav_links {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
 header {
 
 margin-top:0;
