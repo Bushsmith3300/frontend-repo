@@ -239,7 +239,7 @@ justify-content:space-between;
 
 
 .a2 {
-    .a3:link {
+    .a2:link {
     background: linear-gradient(45deg, #0011bb, #ff5500, #00ffcc, #ff00ff);
     background-size: 400% 400%;
     color: #ffffff;
