@@ -276,13 +276,14 @@ justify-content:space-between;
 
 	
 .a3:link {
-    background: linear-gradient(135deg, #ffffff, #e0e0ff);
-    color: #0066cc;
+    background-color: #0011bb;
+    color: #ffffff;
+    box-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
 }
 
 .a3:hover {
-    background: linear-gradient(135deg, #0066cc, #004080);
-    color: #ffffff;
+    background-color: #ff5500;
+    box-shadow: 0 0 12px #ff5500, 0 0 24px #ff5500;
 }
 /* -------------------------
    Active (click) effect
