@@ -239,16 +239,13 @@ justify-content:space-between;
 
 
 .a2 {
-    display: inline-block;
-    padding: 12px 24px;
-    background-color: #ffffff; /* clean white background */
-    color: #333333; /* dark text for contrast */
-    border: 2px solid #ddd; /* subtle border */
-    border-radius: 6px; /* soft rounded corners */
-    text-decoration: none; /* remove underline */
-    font-family: 'Open Sans', sans-serif;
-    transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    .a3:link {
+    background: linear-gradient(45deg, #0011bb, #ff5500, #00ffcc, #ff00ff);
+    background-size: 400% 400%;
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.6);
 }
+
 
 .a2:hover {
     background-color: #f0f0f0; /* light gray on hover */
