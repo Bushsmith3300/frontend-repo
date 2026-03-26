@@ -60,18 +60,6 @@ aside {
 	
     }
 
-nav{
-float:right;	
-display:flex;
-width:100%;
-background:#CCC;
-padding:10px;
-justify-content:space-between;
-align-items:center;
-
-
-}
-
 
 section::after{
 content:"";
