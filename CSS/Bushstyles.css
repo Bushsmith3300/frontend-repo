@@ -196,11 +196,6 @@ justify-content:space-between;
     background: #000; /* optional, so you see the video area clearly */
 }
 
-video {
-    max-width: 100%;
-    height: auto; /* keep the aspect ratio of the video */
-}
-
 	
 .a1:link {
 	background-color:#ffffff;
