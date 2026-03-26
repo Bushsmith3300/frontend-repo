@@ -311,50 +311,59 @@ margin:0;
 .a3:visited {
     display: inline-block;
     text-align: center;
-    text-decoration: none;      /* removes underline */
+    text-decoration: none;
     font-weight: 600;
     font-family: "Open Sans", sans-serif;
-    padding: 10px 20px;         /* gives “button-like” spacing */
-    border: 2px solid rgba(0,50,50,0.8);
-    border-radius: 8px;         /* smooth corners */
-    transition: all 0.3s ease;  /* smooth hover/active animations */
+    padding: 10px 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
     cursor: pointer;
 }
 
 /* -------------------------
-   Normal (unvisited) state
+   Unvisited links with animated gradient
    ------------------------- */
 .a3:link {
-    background-color: #ffffff;
-    color: #0066cc;             /* blue text */
+    background: linear-gradient(45deg, #0011bb, #ff5500, #00ffcc, #ff00ff);
+    background-size: 400% 400%;
+    animation: gradientMove 6s ease infinite;
+    color: #ffffff;
+    border: 2px solid rgba(255,255,255,0.6);
 }
 
 /* -------------------------
-   Visited links
+   Visited links (static gradient)
    ------------------------- */
 .a3:visited {
-    background-color: #f0f0f0;
-    color: #555555;             /* darker gray text */
-    border-color: rgba(80,80,80,0.8);
+    background: linear-gradient(45deg, #4444bb, #aa5500);
+    color: #eeeeee;
+    border: 2px solid rgba(255,255,255,0.6);
 }
 
 /* -------------------------
    Hover effect
    ------------------------- */
 .a3:hover {
-    background-color: #0066cc;  /* blue fill */
-    color: #ffffff;             /* white text */
-    border-color: #004080;      /* darker border */
-    transform: translateY(-2px); /* subtle lift */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* soft shadow */
+    background: linear-gradient(45deg, #ff5500, #0011bb);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 /* -------------------------
-   Active (clicked) state
+   Active (click) effect
    ------------------------- */
 .a3:active {
-    background-color: #004080;  /* darker blue */
-    border-color: #002244;
-    transform: translateY(0);   /* back to normal position */
+    background: linear-gradient(45deg, #0011bb, #ff5500);
+    transform: translateY(0);
     box-shadow: none;
+}
+
+/* -------------------------
+   Keyframes for animated gradient
+   ------------------------- */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
