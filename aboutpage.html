@@ -48,41 +48,21 @@ high school curriculum and for all tertiary courses !</p>
 
 <div style="text-align:center">
 <button type="button" onclick="playPause()">Play/Pause</button>
-<button type="button" onclick="makebig()">Big</button>
-<button type="button" onclick="makenormal()">Normal</button>
-<button type="button" onclick="makesmall()">Small</button>
 </div>
 
 <script>
 
 var bush2=document.getElementById("myvideo");
 
-function playPause()
-{
-    if (bush2.paused)
+function playPause(){
+   
+  if (bush2.paused)
       bush2.play();
    
-    else    
+  else    
       bush2.pause();    
 }   
 
-function makebig()
-{
-   bush2.width=1020;
-   height=400;
-}
-
-function makenormal()
-{
-   bush2.width=720;
-   height=400;
-}
-
-function makesmall()
-{
-   bush2.width=600;
-   height=400;
-}
 
 </script>
 
