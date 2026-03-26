@@ -5,17 +5,22 @@ box-sizing:border box;
 
 
 
-body{
-background:linear-gradient(to right, #0011bb, #ff5500);
-background-color:rgba(0,0,100,0.1);	
-margin:0;
-padding:10px;
-font-size:25px;	
-font-family:"Open Sans", sans-serif;
-line-height:1.5;
-color:#202020;
-
+body {
+    margin: 0; /* remove default spacing */
+    padding: 10px 10px 70px 10px; /* top/right/left = 10px, bottom = 70px to make room for footer */
+    font-size: 25px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.5;
+    color: #202020;
+    text-align: center;
+    
+    /* background */
+    background: linear-gradient(to right, #0011bb, #ff5500);
+    background-color: rgba(0, 0, 100, 0.1);
+    box-sizing: border-box;
 }
+
+
 
 
 header {
@@ -94,9 +99,10 @@ footer {
     color: white;
     font-size: 14px;
     box-sizing: border-box;
-    z-index: 1000; 
-			
+    z-index: 1000; /* ensures footer is on top of other content */
 }
+			
+
 
 
 @media screen and (max-width: 600px){
