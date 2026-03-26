@@ -7,7 +7,7 @@ box-sizing:border box;
 
 body {
     margin: 0 auto; /* remove default spacing */
-    padding: 10px 10px 70px 10px; /* top/right/left = 10px, bottom = 70px to make room for footer */
+    padding: 10px 10px 100px 10px; /* top/right/left = 10px, bottom = 70px to make room for footer */
     font-size: 25px;
     font-family: "Open Sans", sans-serif;
     line-height: 1.5;
