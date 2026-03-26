@@ -290,20 +290,14 @@ justify-content:space-between;
    Unvisited links with animated gradient
    ------------------------- */
 .a3:link {
-    background: linear-gradient(45deg, #0011bb, #ff5500, #00ffcc, #ff00ff);
-    background-size: 400% 400%;
-    animation: gradientMove 6s ease infinite;
+    background-color: #0011bb;
     color: #ffffff;
-    border: 2px solid rgba(255,255,255,0.6);
+    box-shadow: 0 0 8px #00ffff, 0 0 16px #00ffff;
 }
 
-/* -------------------------
-   Visited links (static gradient)
-   ------------------------- */
-.a3:visited {
-    background: linear-gradient(45deg, #4444bb, #aa5500);
-    color: #eeeeee;
-    border: 2px solid rgba(255,255,255,0.6);
+.a3:hover {
+    background-color: #ff5500;
+    box-shadow: 0 0 12px #ff5500, 0 0 24px #ff5500;
 }
 
 /* -------------------------
