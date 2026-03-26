@@ -1,32 +1,26 @@
 
 *{
 
-box-sizing:border box;
+box-sizing:border-box;
 
 }
 
+html, body{
+ height:100%;
+}
+
 body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 
-padding: 10px 10px 70px 10px; /* top/right/left = 10px, bottom = 100px to make room for footer */
+    padding: 10px;
+    font-size: 25px;
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.5;
+    color: #202020;
 
-font-size: 25px;
-
-font-family: "Open Sans", sans-serif;
-
-line-height: 1.5;
-
-color: #202020;
-
-
-
-/* background */
-
-background: linear-gradient(to right, #0011bb, #ff5500);
-
-background-color: rgba(0, 0, 100, 0.1);
-
-box-sizing: border-box;
-
+    background: linear-gradient(to right, #0011bb, #ff5500);
 }
 
 header {
@@ -107,6 +101,8 @@ font-size: 14px;
 
 box-sizing: border-box;
 
+margin-top: auto; 
+
 }
 
 @media screen and (max-width: 600px){
@@ -173,7 +169,7 @@ margin-top:0px;
 
 color:black !important;
 
-background-color:rgba(255,255,,255, 0.3);
+background-color:rgba(255,255,255, 0.3);
 
 border:0px;
 
