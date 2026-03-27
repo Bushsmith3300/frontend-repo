@@ -92,7 +92,7 @@
 
 
         function showQuestion(){
-            document.getElementById('questions').textContent=question[index][0];
+            document.getElementById('questions').textContent=question[index].question;
             document.getElementById('answer').textContent="";
             document.getElementById('answer').style.display="none";
             }
@@ -106,10 +106,10 @@
 
         document.getElementById('show').onclick=() => {
             if (question.length > 0) {
-               document.getElementById('answer').textContent=question[index][1];
+               document.getElementById('answer').textContent=question[index].answer;
                document.getElementById('answer').style.display="block";
             }
-          };
+		};          
 
   </script>
 
