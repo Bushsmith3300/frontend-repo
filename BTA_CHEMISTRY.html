@@ -74,15 +74,17 @@
            
             .then(res => res.json())
             .then(data => {
-                question = data.questions;
+                console.log(data);
+
+				question=data.questions;
 
                 if (question.length > 0) 
 
                     showQuestion();
-            })
+			}
+			
+			})
                 
-
-
             .catch(err => {
                 console.log('Error:', err);
                 document.getElementById('questions').textContent = "Click button below to show question";
@@ -100,7 +102,6 @@
             index=(index+1) % question.length;
             showQuestion();
             };  
-
 
 
         document.getElementById('show').onclick=() => {
