@@ -1,0 +1,117 @@
+<!Doctype html>
+<html>
+
+
+<head>
+ 
+<title>Bush Teaching Assistant!</title>
+
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="description" content=" Standard Chemistry Questions for Ghanaian SHS Learners!">
+ <meta name="author" content="Emmanuel Asiamah Amponsah">
+ <meta name="keywords" content="chemistry, past questions, WAEC, teaching assistant, asiamah, learn">
+
+
+
+ <link rel="stylesheet" href="CSS/BTA_CHEMISTRY.css"></link>
+
+</head>
+
+	
+<body>
+    <h1 class="heading">Welcome to Bush Teaching Assistant!</h1><br>
+
+    <h1 class=announcement>( Yaa Asantewaa Girls SHS )<br><br>Announcement for 2 SCIENCE 7,8,9,10,11</h1>
+
+  
+    <h2 class=announcement>Answer the following questions on a sheet of paper. Take snapshot of it and send to 
+ <a href= "https://wa.me/233554454161" target="__blank">me</a></h2><br>
+	
+ <h2 class=announcement>ALSO, there is going to be an online class scheduled for:<br><br>
+ ***<span class="highlight">2 Sci 7</span> and <span class="highlight">2 Sci 8</span> on Friday 27th March
+ 2026***<br><br>***<span class="highlight">2 Sci 9</span> and <span class="highlight"> 2 Sci 10</span> and <span class="highlight">
+ 2 Sci 11</span> on Saturday 28th March 2026***</h2><br><br>
+ 
+ <h2 class=announcement>*** <span class="highlight">Time: 12:00 pm for each meeting</span> ***</h2><br><br>
+
+
+ <a class=announcement href="#" class="disabled">Click here by 11:50 am to enter classroom.Thank you!
+ </a><br><br><br>
+
+	 
+<h2>Answer the following QUESTIONS on Atomic Structure (10 Questions)</h2>
+
+    <div id="questions" class=question>Loading...</div>
+
+    <div id="answer"></div>
+
+    <button id="show" type="button" disabled>Check Answer</button>
+
+    <button id="next" type="button">Next →</button><br><br><br>
+
+<a href= "https://wa.me/233554454161" target="__blank">CLICK TO SEND YOUR ANSWERS TO BUSH</a><br><br>
+
+<a href ="page3.html">Go back&lt&lt;</a><br><br>
+
+<a href ="index.html">Back to Home Page</a>
+
+
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2026 Bush Teaching Assistant. All rights reserved.</p>
+        <p>Connecting learners and teachers everywhere!</p>
+    </div>
+</footer>
+
+
+    <script>
+
+        let question = [];
+        let index = 0;
+
+        fetch("https://bta-330.onrender.com/question_answer_pair")
+           
+            .then(res => res.json())
+            .then(data => {
+                question = data.questions;
+
+                if (question.length > 0) 
+
+                    showQuestion();
+            })
+                
+
+
+            .catch(err => {
+                console.log('Error:', err);
+                document.getElementById('questions').textContent = "Click button below to show question";
+            });
+
+
+        function showQuestion(){
+            document.getElementById('questions').textContent=question[index][0];
+            document.getElementById('answer').textContent="";
+            document.getElementById('answer').style.display="none";
+            }
+
+
+        document.getElementById('next').onclick=()=>{
+            index=(index+1) % question.length;
+            showQuestion();
+            };  
+
+
+
+        document.getElementById('show').onclick=() => {
+            if (question.length > 0) {
+               document.getElementById('answer').textContent=question[index][1];
+               document.getElementById('answer').style.display="block";
+            }
+          };
+
+  </script>
+
+
+</body>
+</html>
