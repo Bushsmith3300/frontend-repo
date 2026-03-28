@@ -87,7 +87,8 @@ disabled for now. Thank you!</a><br><br><br>
 
 
         function showQuestion(){
-            document.getElementById('questions').textContent = question[index][0];
+            document.getElementById('questions').innerHTML =
+            (index + 1) + ".<br><br>" + question[index][0];
             document.getElementById('answer').textContent="";
             document.getElementById('answer').style.display="none";
             }
