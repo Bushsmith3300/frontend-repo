@@ -1,94 +1,170 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Bush Teaching Assistant</title>
+    <link rel="stylesheet" href="CSS/Bushstyles.css">
+    
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<title>About Bush Teaching Assistant</title>
+        html, body {
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
 
-<link rel="stylesheet" href="CSS/Bushstyles.css"></link>
- 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="WAEC Chemistry Past Questions!">
-<meta name="author" content="Emmanuel Asiamah Amponsah">
-<meta name="keywords" content="bush application tool, chemistry, examination, teaching assistant, standard">
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
+        .main-content {
+            flex: 1 0 auto;
+            padding: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
 
+        /* Further reduced video */
+        .video_wrapper {
+            text-align: center;
+            margin: 25px auto;
+        }
+
+        .video1 {
+            width: 100%;
+            max-width: 480px;
+            height: 270px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 1.05rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 6px;
+            background-color: #007bff;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer - Fixed & Centered */
+        .footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 30px 15px;
+            margin-top: auto;
+            width: 100%;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin: 8px 0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            .video1 {
+                max-width: 92%;
+                height: 240px;
+            }
+            
+            .footer {
+                padding: 25px 10px;
+            }
+        }
+    </style>
 </head>
-
 
 <body>
 
+    <div class="main-content">
+        <h2 class="h1"><b>About this Website</b></h2>
 
-<h2 class=h1><b>About this Website</b></h2>
+        <article>
+            <p class="p1">
+                <img class="BTA_logo_aboutpage" src="images/BTA_new_logo.jpeg" alt="App logo">
+                This website gives access to <abbr title="BushEM Teaching Assistant"><b>BTA</b></abbr> 
+                Application tool used by learners and teachers in their learning and teaching process. 
+                The application helps <b class="italize">review</b> and also <b class="italize">sets</b> 
+                standard examination questions for candidates and/or for class discussion.
+                <span class="red_font">
+                    <abbr title="BushEM Teaching Assistant"><b>BTA</b></abbr> is essential for students 
+                    preparing for any major academic or promotional examination.
+                </span>
+                <span class="italize"> This App is <b class="underline">subject specific</b> 
+                and becomes relevant in any academic subject or course within the Ghanaian curriculum.</span>
+            </p>
+        </article>
 
+        <p class="p2">
+            Soon you will be able to <b>download</b> BTA for all subjects in Ghana Senior 
+            High School curriculum and for all tertiary courses!
+        </p>
 
- <article>
-<p class=p1> <img class=BTA_logo_aboutpage src="images/BTA_new_logo.jpeg" alt="App logo" >This website gives access to<abbr title="BushEM Teaching Assistant"><b>
-BTA</abbr> Application tool</b> used by learners and teachers in their learning and teaching process. 
-The application helps <b class=italize>review</b> and also <b class=italize>sets</b> standard examination questions
-for candidates and/or for class discussion.<span class=red_font><abbr title="BushEM Teaching Assistant"><b> 
-BTA</b></abbr> is essential for students preparing for any major academic or promotional examination.
-</span><span class=italize> This App is <b class=underline>subject specific</b> 
-and becomes relevant in any academic subject or course within the Ghanaian curriculum.</span></p>
-</article>
+        <div class="video_wrapper">
+            <video id="myvideo" class="video1" controls muted loop>
+                <source src="video/bta.mp4" type="video/mp4">
+                Your browser does not support HTML video.
+            </video>
+        </div>
 
-
-<p class=p2>Soon you will be able to <b>download</b> BTA for all subjects in Ghana Senior 
-high school curriculum and for all tertiary courses !</p>
-
-
-<div class=video_wrapper style="text-align:center">
-
-<video id="myvideo" class=video1 width=720 height=400 controls autoplay muted loop>
-<source src="video/bta.mp4" type="video/mp4">Your browser does not support HTML video.>
-</video>
-
-</div>
-
-<div style="text-align:center">
-<button type="button" onclick="playPause()">Play/Pause</button><br><br>
-</div>
-
-<script>
-
-var bush2=document.getElementById("myvideo");
-
-function playPause(){
-   
-  if (bush2.paused)
-      bush2.play();
-   
-  else    
-      bush2.pause();    
-}   
-
-
-</script>
-
-
-<noscript style="colour:red"> JavaScript is disabled in your browser!</noscript>
-
-
- 
-<div class="nav_links">
-    <a class="a3" href="index.html">Back to Home Page</a>
-    <a class="a3" href="page3.html">Choose your Subject</a>
-</div>
-
-
-<footer>
-	<footer class="footer">
-    <div class="footer-content">
-        <p>&copy; 2026 Bush Teaching Assistant. All rights reserved.</p>
-        <p>Connecting learners and facilitators everywhere!</p>
-		<p>This website is developed and owned by Emmanuel Asiamah Amponsah...@EAA software...</p>
+        <div style="text-align: center; margin: 20px 0;">
+            <button type="button" onclick="playPause()">Play / Pause</button>
+        </div>
     </div>
-</footer>
+	
+	<div class="nav_links" style="text-align: center; margin: 20px 0; padding-bottom: 15px;">
+        <a class="a3" href="index.html">&lt&ltBack to Home Page</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <a class="a3" href="page3.html">Choose your Subject&gt&gt</a>
+    </div>
 
 
+    <script>
+        const video = document.getElementById("myvideo");
 
+        function playPause() {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        }
+    </script>
 
+    <noscript style="color: red; text-align: center; display: block; margin: 20px;">
+        JavaScript is disabled in your browser!
+    </noscript>
+	
+	 <!-- Footer with properly centered content -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Bush Teaching Assistant. All rights reserved.</p>
+            <p>Connecting learners and facilitators everywhere!</p>
+            <p>This website is developed and owned by Emmanuel Asiamah Amponsah @ EAA software</p>
+        </div>
+    </footer>
+
+    
 
 </body>
 </html>
