@@ -143,10 +143,10 @@
         const video = document.getElementById("myvideo");
 
         function playPause() {
-            if (video.play) {
-                video.paused();
-            } else {
+            if (video.paused) {
                 video.play();
+            } else {
+                video.paused();
             }
         }
     </script>
