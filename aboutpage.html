@@ -129,7 +129,7 @@
         </div>
 
         <div style="text-align: center; margin: 20px 0;">
-            <button type="button" onclick="playPause()";>Pause / Play</button>
+            <button type="button" onclick="playPause()">Pause / Play</button>
         </div>
     </div>
 	
@@ -140,7 +140,7 @@
 
 
     <script>
-        const video = document.getElementById("myvideo");
+        var video = document.getElementById("myvideo");
 
         function playPause() {
             if (video.paused) {
