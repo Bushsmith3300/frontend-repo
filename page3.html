@@ -1,59 +1,176 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bush Teaching Assistant!</title>
 
-<title>Download Bush Teaching Assistant!</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="WAEC Chemistry Past Questions!">
-<meta name="author" content="Emmanuel Asiamah Amponsah">
-<meta name="keywords" content="BTAchem, subject-specific, teaching assistant, asiamah">
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f4f8fb;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-<link rel="stylesheet" href="CSS/Bushstyles.css"></link>
+        /* HEADER STRIP */
+        .top-bar {
+            height: 6px;
+            background: linear-gradient(to right, #007bff, #6ec6ff);
+        }
 
+        /* HERO */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+
+        .hero p {
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        /* MAIN */
+        .main-content {
+            flex: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+
+        /* SUBJECT GRID */
+        .subject-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .subject-links a {
+            background: white;
+            padding: 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #222;
+            border-radius: 12px;
+            font-size: 1.05rem;
+            font-weight: 500;
+            border: 1px solid #e3e8ee;
+            transition: all 0.25s ease;
+        }
+
+        .subject-links a:hover {
+            border-color: #007bff;
+            color: #007bff;
+            background: #f7fbff;
+        }
+
+        /* NAV */
+        .nav-links {
+            text-align: center;
+            margin: 45px 0 25px;
+        }
+
+        .nav-links a {
+            margin: 8px;
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            color: #007bff;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            background: #eaf4ff;
+        }
+
+        /* FOOTER */
+        .footer {
+            background: #ffffff;
+            border-top: 1px solid #e3e8ee;
+            padding: 25px 15px;
+        }
+
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+            color: #666;
+            font-size: 0.85rem;
+        }
+
+        .footer-content p {
+            margin: 6px 0;
+        }
+
+        /* MOBILE */
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="top-bar"></div>
 
+    <!-- HERO -->
+    <section class="hero">
+        <h1>
+            <abbr title="Bush Teaching Assistant">BTA</abbr> Teaching Assistant
+        </h1>
+        <p>BTA Subject-based learning tools.</p>
+    </section>
 
-<h2 class=h1> <abbr title="BushEM Teaching Assistant">BTA</abbr> comes as subject-specific App.<br>
-In a SCIENCE CLASS,<br>BTA comes as:</h2>
+    <!-- MAIN -->
+    <div class="main-content">
 
-<a class=a3 href="announcement_page.html">BTA<sub>CHEM</sub></a>
+        <div class="subject-links">
+            <a href="announcement_page.html">BTA<sub>CHEM</sub></a>
+            <a href="contactpage.html">BTA<sub>PHYSICS</sub></a>
+            <a href="contactpage.html">BTA<sub>E-MATH</sub></a>
+            <a href="contactpage.html">BTA<sub>BIOLOGY</sub></a>
+            <a href="contactpage.html">BTA<sub>ENGLISH</sub></a>
+            <a href="contactpage.html">BTA<sub>SOCIAL STUDIES</sub></a>
+            <a href="contactpage.html">BTA<sub>CORE-MATH</sub></a>
+            <a href="contactpage.html">BTA<sub>INTEGRATED SCIENCE</sub></a>
+        </div>
 
-<a class=a3 href="contactpage.html">BTA<sub>PHYSICS</sub></a>
+        <div class="nav-links">
+            <a href="aboutpage.html">← Back</a>
+            <a href="index.html">Home</a>
+            <a href="contactpage.html">Contact Author</a>
+        </div>
 
-<a class=a3 href="contactpage.html">BTA<sub>E-MATH</sub></a>
-
-<a class=a3 href="contactpage.html">BTA<sub>BIOLOGY</sub></a>
-
-<a class=a3 href="contactpage.html">BTA<sub>ENGLISH</sub></a>
-
-<a class=a3 href="contactpage.html">BTA<sub>SOCIAL STUDIES</sub></a>
-
-<a class=a3 href="contactpage.html">BTA<sub>CORE-MATH</sub></a>
-
-<a class=a3 href="contactpage.html">BTA<sub>INTEGRATED SCIENCE</sub></a><br><br><br>
-
-<a class=a2 href ="aboutpage.html">Back&lt&lt;</a>
-
-<a class=a2 href ="index.html">Back to Home Page</a>
-
-<a class=a2 href ="contactpage.html">Contact Author</a>
-
-
-<footer>
-	<footer class="footer">
-    <div class="footer-content">
-        <p>&copy; 2026 Bush Teaching Assistant. All rights reserved.</p>
-        <p>Connecting learners and facilitators everywhere!</p>
-		<p>This website is developed and owned by Emmanuel Asiamah Amponsah...@EAA software...</p>
     </div>
-</footer>
 
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Bush Teaching Assistant. All rights reserved.</p>
+            <p>Connecting learners and facilitators everywhere!</p>
+            <p>Developed by Emmanuel Asiamah Amponsah @ EAA Software</p>
+        </div>
+    </footer>
 
 </body>
 </html>
