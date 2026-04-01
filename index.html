@@ -1,77 +1,204 @@
 <!DOCTYPE html>
 <html lang="EN-US">
 <head>
- 
-<title>Bush Teaching Assistant!</title>
+    <title>Bush Teaching Assistant</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Standard Chemistry Questions for Ghanaian SHS Learners!">
+    <meta name="author" content="Emmanuel Asiamah Amponsah">
 
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <meta name="description" content=" Standard Chemistry Questions for Ghanaian SHS Learners!">
- <meta name="author" content="Emmanuel Asiamah Amponsah">
- <meta name="keywords" content="chemistry, past questions, WAEC, teaching assistant, asiamah, learn">
- 
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<link rel="stylesheet" href="CSS/Bushstyles.css"></link>
+        body {
+            font-family: 'Poppins', system-ui, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e40af 50%, #dbeafe 100%);
+            color: #1e2937;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
 
+        .header {
+            background: rgba(15, 23, 42, 0.97);
+            backdrop-filter: blur(12px);
+            color: #f1f5f9;
+            text-align: center;
+            padding: 1.8rem 0;
+            font-size: 2.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            border-bottom: 5px solid #60a5fa;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
+        section {
+            flex: 1;
+            padding: 70px 20px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        article {
+            background: rgba(255, 255, 255, 0.98);
+            border-radius: 24px;
+            padding: 60px 50px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(30, 64, 175, 0.15);
+            border: 2px solid #bfdbfe;
+        }
+
+        .h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 700;
+            background: linear-gradient(90deg, #1e40af, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 28px;
+        }
+
+        .p1, .p2 {
+            font-size: 1.18rem;
+            line-height: 1.75;
+            max-width: 820px;
+            margin: 0 auto 30px;
+            color: #334155;
+        }
+
+        .italize {
+            font-style: italic;
+            color: #2563eb;
+            font-weight: 500;
+        }
+
+        .video_wrapper {
+            margin: 45px auto;
+            max-width: 500px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 45px rgba(30, 64, 175, 0.2);
+            border: 8px solid #ffffff;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 140px;
+            margin-top: 25px;
+        }
+
+        .a3 {
+            display: inline-block;
+            padding: 16px 52px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.18rem;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+        }
+
+        .a3:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5);
+        }
+
+        .footer {
+            background: #0f172a;
+            color: #e2e8f0;
+            text-align: center;
+            padding: 45px 20px 30px;
+            margin-top: auto;
+            border-top: 3px solid #60a5fa;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-content p:last-child {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            .h1 {
+                font-size: 3.3rem;
+            }
+            article {
+                padding: 45px 30px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
+    <header class="header">
+        <b>BUSH TEACHING ASSISTANT</b>
+    </header>
 
+    <section>
+        <article>
+            <h1 class="h1">BTA</h1>
+            
+            <p class="p1">
+                <abbr title="Bush Teaching Assistant"><b>BTA</b></abbr> is an 
+                <span class="italize">Application tool</span> designed to provide teachers and learners with
+                <b><abbr title="West African Examination Council">WAEC</abbr> past questions</b> on all subjects for reference 
+                and review. 
+                <span class="italize">It also sets questions on specified topics for teachers to assess the 
+                understanding of learners in those topics.</span>
+            </p>
 
-<header class=header>
-<b>BUSH TEACHING ASSISTANT</b><br>
-</header>
+            <p class="p2">
+                This application can combine required number of questions from different
+                topics for a standard examination. You can print all questions and answers instantly and
+                concurrently.
+            </p>
+            
+            <div class="video_wrapper">
+                <video controls autoplay muted loop>
+                    <source src="video/bta2.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </article>
 
-<section>
-    
-	
-	<article>
-	
-		<h1 class=h1><b>BTA</b></h1>
-		 
-		 <p class=p1><abbr title="Bush Teaching Assistant"><b>BTA</b></abbr> is an 
-		 <span class=italize>Application tool</span> designed to provide teachers and learners with
-		 <b><abbr title= "West African Examination Council"> WAEC</abbr> past questions</b> on all subjects for reference 
-		 and review. <span class=italize>It also sets questions on specified topics for teachers to assess the 
-		 understanding of learners in those topics.</p></span> 
-
-    
-		<p class=p2>This application can combine required number of questions from different
-		topics for a standard examination. You can print all questions and answers instantly and
-		concurrently.</p>
-		
-		<div class=video_wrapper style="text-align:center">
-
-			<video controls class=video_wrapper width=464 height=688 autoplay muted loop>
-			<source src="video/bta2.mp4" type="video/mp4">Your browser does not support videoo tag>
-			</video>
-
-		</div>
-
-
-       </article>
-
-	
-        <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
-    <a class="a3" href="aboutpage.html">More on BTA</a>
+        <div class="btn-container">
+            <a class="a3" href="aboutpage.html">More on BTA</a>
         </div>
+    </section>
 
-
-	 
-</section>	
-
-<footer>
-	<footer class="footer">
-    <div class="footer-content">
-        <p>&copy; 2026 Bush Teaching Assistant. All rights reserved.</p>
-        <p>Connecting learners and facilitators everywhere!</p>
-		<p>This website is developed and owned by Emmanuel Asiamah Amponsah...@EAA software...</p>
-    </div>
-</footer>
-
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2026 Bush Teaching Assistant. All rights reserved.</p>
+            <p>Connecting learners and facilitators everywhere!</p>
+            <p>This website is developed and owned by Emmanuel Asiamah Amponsah... @EAA software...</p>
+        </div>
+    </footer>
 
 </body>
 </html>
