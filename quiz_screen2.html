@@ -274,7 +274,7 @@
 		Contact Author (Bush)</a>');
 
         const data = await response.json();
-		document.getElementById('quiz-container).innerHTML="Questions Loading..."  
+		document.getElementById('quiz-container').innerHTML="Questions Loading...<br>Refresh this page if question's taking too long to load;"  
         if (data.status === "success") {
           allQuestions = data.questions;
           currentIndex = 0;
