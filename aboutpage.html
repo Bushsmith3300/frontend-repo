@@ -4,171 +4,199 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Bush Teaching Assistant</title>
-    <link rel="stylesheet" href="CSS/Bushstyles.css">
-    
+
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap');
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-        }
-
-        html, body {
-            height: 100%;
-            font-family: Arial, sans-serif;
+            box-sizing: border-box;
         }
 
         body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0d1117 0%, #1f2937 100%);
+            color: #e2e8f0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        .main-content {
-            flex: 1 0 auto;
-            padding: 20px;
-            max-width: 1000px;
-            margin: 0 auto;
+        header {
+            background: rgba(15,23,42,0.95);
+            backdrop-filter: blur(10px);
+            color: #f8fafc;
+            text-align: center;
+            padding: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            border-bottom: 3px solid #3b82f6;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        /* Further reduced video */
+        .main-content {
+            flex: 1;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        h1, h2 {
+            font-family: 'Playfair Display', serif;
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 25px;
+            background: linear-gradient(90deg, #3b82f6, #60a5fa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            color: #cbd5e1;
+        }
+
+        .italize {
+            font-style: italic;
+            color: #60a5fa;
+            font-weight: 500;
+        }
+
+        .red_font {
+            color: #f87171;
+        }
+
         .video_wrapper {
             text-align: center;
-            margin: 25px auto;
+            margin: 30px auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+            border: 2px solid #3b82f6;
         }
 
-        .video1 {
+        video {
             width: 100%;
             max-width: 480px;
             height: 270px;
+            display: block;
             border-radius: 10px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            object-fit: cover;
         }
 
-        button {
-            padding: 12px 24px;
-            font-size: 1.05rem;
-            cursor: pointer;
-            border: none;
-            border-radius: 6px;
-            background-color: #007bff;
-            color: white;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-
-        /* Footer - Fixed & Centered */
-        .footer {
-            background-color: #333;
-            color: #fff;
+        .btn-container {
             text-align: center;
-            padding: 30px 15px;
+            margin: 25px 0;
+        }
+
+        .a3, button {
+            display: inline-block;
+            padding: 14px 40px;
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+            color: white;
+            font-weight: 600;
+            border: none;
+            border-radius: 40px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 8px 25px rgba(59,130,246,0.6);
+            font-size: 1rem;
+            margin: 5px;
+        }
+
+        .a3:hover, button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(59,130,246,0.8);
+        }
+
+        .nav_links {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        footer {
+            background: #0b0f1a;
+            color: #cbd5f0;
+            text-align: center;
+            padding: 25px 15px;
+            font-size: 0.9rem;
+            border-top: 2px solid #3b82f6;
             margin-top: auto;
-            width: 100%;
         }
 
-        .footer-content {
-            max-width: 800px;
-            margin: 0 auto;
+        footer p {
+            margin: 6px 0;
         }
 
-        .footer-content p {
-            margin: 8px 0;
-            font-size: 0.95rem;
-            line-height: 1.5;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            .video1 {
+        @media (max-width: 768px) {
+            h1, h2 {
+                font-size: 2.2rem;
+            }
+            video {
                 max-width: 92%;
                 height: 240px;
-            }
-            
-            .footer {
-                padding: 25px 10px;
             }
         }
     </style>
 </head>
-
 <body>
 
+    <header>
+        BUSH TEACHING ASSISTANT
+    </header>
+
     <div class="main-content">
-        <h2 class="h1"><b>About this Website</b></h2>
+        <h2>About This Website</h2>
 
-        <article>
-            <p class="p1">
-                <img class="BTA_logo_aboutpage" src="images/BTA_new_logo.jpeg" alt="App logo">
-                This website gives access to <abbr title="BushEM Teaching Assistant"><b>BTA</b></abbr> 
-                Application tool used by learners and teachers in their learning and teaching process. 
-                The application helps <b class="italize">review</b> and also <b class="italize">sets</b> 
-                standard examination questions for candidates and/or for class discussion.
-                <span class="red_font">
-                    <abbr title="Bush Teaching Assistant"><b>BTA</b></abbr> is essential for students 
-                    preparing for any major academic or promotional examination.
-                </span>
-                <span class="italize"> This App is <b class="underline">subject specific</b> 
-                and becomes relevant in any academic subject or course within the Ghanaian curriculum.</span>
-            </p>
-        </article>
+        <p>
+            <img class="BTA_logo_aboutpage" src="images/BTA_new_logo.jpeg" alt="BTA Logo" style="width:120px; display:block; margin:0 auto 20px;">
+            The <abbr title="Bush Teaching Assistant"><b>BTA</b></abbr> Application tool provides learners and teachers access 
+            to review <b>WAEC past questions</b> and set standard examination-style questions for practice.
+            <span class="red_font">
+                <abbr title="Bush Teaching Assistant"><b>BTA</b></abbr> is essential for students preparing for any major academic or promotional examination.
+            </span>
+            <span class="italize"> This App is subject-specific and adapts to any academic subject or course within the Ghanaian curriculum.</span>
+        </p>
 
-        <p class="p2">
-            Soon you will be able to <b>download</b> BTA for all subjects in Ghana Senior 
-            High School curriculum and for all tertiary courses!
+        <p>
+            Soon you will be able to <b>download</b> BTA for all subjects in the Ghana Senior High School curriculum and for all tertiary courses!
         </p>
 
         <div class="video_wrapper">
-            <video id="myvideo" class="video1" controls muted loop>
+            <video id="myvideo" controls muted loop>
                 <source src="video/bta.mp4" type="video/mp4">
-                Your browser does not support HTML video.
             </video>
         </div>
 
-        <div style="text-align: center; margin: 20px 0;">
-            <button type="button" onclick="playPause()">Pause / Play</button>
+        <div class="btn-container">
+            <button onclick="playPause()">Pause / Play</button>
+        </div>
+
+        <div class="nav_links">
+            <a class="a3" href="index.html">&lt;&lt; Back to Home Page</a>
+            <a class="a3" href="page3.html">Choose your Subject &gt;&gt;</a>
         </div>
     </div>
-	
-	<div class="nav_links" style="text-align: center; margin: 20px 0; padding-bottom: 15px;">
-        <a class="a3" href="index.html">&lt&ltBack to Home Page</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <a class="a3" href="page3.html">Choose your Subject&gt&gt</a>
-    </div>
 
-
-    <script>
-        var video = document.getElementById("myvideo");
-
-		
-		function playPause() {
-		   
-		   if (video.paused)
-		       video.play();
-		   
-		    else    
-		      video.pause();    
-		}   
-			
-        
-    </script>
-
-    <noscript style="color: red; text-align: center; display: block; margin: 20px;">
-        JavaScript is disabled in your browser!
-    </noscript>
-	
-	 <!-- Footer with properly centered content -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>&copy; 2026 Bush Teaching Assistant. All rights reserved.</p>
-            <p>Connecting learners and facilitators everywhere!</p>
-            <p>This website is developed and owned by Emmanuel Asiamah Amponsah @ EAA software</p>
-        </div>
+    <footer>
+        <p>&copy; 2026 Bush Teaching Assistant</p>
+        <p>Connecting learners and educators</p>
+        <p>Developed by Emmanuel Asiamah Amponsah</p>
     </footer>
 
-    
+    <script>
+        const video = document.getElementById("myvideo");
+        function playPause() {
+            if(video.paused) video.play();
+            else video.pause();
+        }
+    </script>
 
 </body>
 </html>
