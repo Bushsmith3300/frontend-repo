@@ -273,8 +273,7 @@
         if (!response.ok) throw new Error('Failed to fetch,  <a href="https://wa.me/233554454161" target="_blank">
 		Contact Author (Bush)</a>');
 
-        const data = await response.json();
-		document.getElementById('quiz-container').innerHTML="Questions Loading...<br>Refresh this page if question's taking too long to load;"  
+        const data = await response.json(); 
         if (data.status === "success") {
           allQuestions = data.questions;
           currentIndex = 0;
