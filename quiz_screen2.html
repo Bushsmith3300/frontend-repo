@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Chemistry Quiz</title>
+
   <style>
     * {
       margin: 0;
@@ -16,9 +17,6 @@
       min-height: 100vh;
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
       color: white;
-      background-attachment: fixed;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       display: flex;
       flex-direction: column;
     }
@@ -37,7 +35,6 @@
       background: linear-gradient(to right, #00ffea, #ff00cc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0 4px 15px rgba(0, 255, 234, 0.3);
     }
 
     .subtitle {
@@ -47,19 +44,40 @@
       margin-bottom: 40px;
     }
 
+    /* 🔥 LOADING */
+    #loading {
+      text-align: center;
+      margin-top: 80px;
+    }
+
+    #loading p {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      color: #00ffea;
+      font-weight: 500;
+    }
+
+    .spinner {
+      width: 65px;
+      height: 65px;
+      margin: auto;
+      border: 6px solid rgba(255,255,255,0.15);
+      border-top: 6px solid #00ffea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
     .question-card {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.15);
       padding: 35px;
       border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       margin-bottom: 30px;
-      transition: transform 0.3s ease;
-    }
-
-    .question-card:hover {
-      transform: translateY(-5px);
     }
 
     #progress {
@@ -70,57 +88,31 @@
       color: #00ffea;
     }
 
-    #restart-message {
-      text-align: center;
-      font-size: 1.35rem;
-      color: #00ff9d;
-      background: rgba(0, 255, 157, 0.15);
-      border: 1px solid #00ff9d;
-      padding: 12px 20px;
-      border-radius: 12px;
-      margin-bottom: 20px;
-      font-weight: bold;
-      display: none;
-    }
-
     h2 {
       font-size: 1.45rem;
-      line-height: 1.5;
       margin-bottom: 30px;
-      color: #ffffff;
     }
 
     .options button {
-      display: block;
       width: 100%;
       padding: 16px 20px;
       margin: 12px 0;
       font-size: 1.05rem;
-      border: 2px solid rgba(255, 255, 255, 0.2);
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.07);
       color: white;
       cursor: pointer;
-      text-align: left;
-      transition: all 0.3s ease;
-    }
-
-    .options button:hover:not(:disabled) {
-      background: rgba(255, 255, 255, 0.15);
-      border-color: #00ffea;
-      transform: translateX(8px);
+      border: none;
     }
 
     .options button.correct {
-      background: #00c853 !important;
-      border-color: #00c853;
-      color: white;
+      background: #00ff9d !important;
+      color: #000;
       font-weight: bold;
     }
 
     .options button.wrong {
-      background: #ff1744 !important;
-      border-color: #ff1744;
+      background: #ff4d6d !important;
       color: white;
     }
 
@@ -133,7 +125,6 @@
 
     #explanation {
       background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(8px);
       padding: 22px;
       border-radius: 14px;
       border-left: 6px solid #00ffea;
@@ -141,7 +132,7 @@
       line-height: 1.6;
     }
 
-    button#next-btn {
+    #next-btn {
       display: block;
       margin: 25px auto 0;
       padding: 14px 40px;
@@ -152,257 +143,141 @@
       border-radius: 50px;
       cursor: pointer;
       font-weight: bold;
-      box-shadow: 0 6px 20px rgba(0, 255, 234, 0.4);
-      transition: all 0.3s ease;
     }
 
-    button#next-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 255, 234, 0.6);
-    }
-
-    .a1 {
-      display: block;
-      margin: 25px auto 0;
-      padding: 14px 40px;
-      font-size: 1.1rem;
-      background: linear-gradient(to right, #00ffea, #00b8d4);
-      color: #000;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 6px 20px rgba(0, 255, 234, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .a1:hover {
-      transform: scale(1.05);
-      box-shadow: 0 8px 25px rgba(0, 255, 234, 0.6);
-    }
-
-    .result-card {
-      text-align: center;
-      padding: 60px 40px;
-    }
-
-    .final-score {
-      font-size: 5.5rem;
-      font-weight: bold;
-      margin: 20px 0 10px 0;
-      background: linear-gradient(to right, #00ffea, #ff00cc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      line-height: 1;
-    }
-
-    .percentage {
-      font-size: 3rem;
-      font-weight: 600;
-      color: #00ff9d;
-      margin-bottom: 25px;
-    }
-
-    .first-attempt-box {
-      background: rgba(255, 215, 0, 0.1);
-      border: 1px solid #ffd700;
-      border-radius: 12px;
-      padding: 18px;
-      margin: 25px auto;
-      max-width: 400px;
-    }
-
-    .first-attempt-box p {
-      font-size: 1.25rem;
-      color: #ffd700;
-      margin-bottom: 5px;
-    }
-
-    /* ✅ FIXED FOOTER */
     footer {
       background: #0f172a;
-      color: #e2e8f0;
       text-align: center;
-      padding: 45px 20px 30px;
+      padding: 20px;
       margin-top: auto;
-      border-top: 3px solid #60a5fa;
     }
-
   </style>
 </head>
+
 <body>
 
-  <div class="container">
-    <h1>BTA Chemistry Quiz</h1>
-    <p class="subtitle">Test your knowledge in Chemical Kinetics & Rate of Reaction</p>
+<div class="container">
+  <h1>BTA Chemistry Quiz</h1>
+  <p class="subtitle">Test your knowledge in Chemical Kinetics</p>
 
-    <p id="progress"></p>
-    <div id="restart-message">✓ Quiz Restarted!</div>
-    <div id="quiz-container"></div>
+  <p id="progress"></p>
+
+  <!-- ✅ LOADING -->
+  <div id="loading">
+    <div class="spinner"></div>
+    <p>Loading questions... please wait</p>
   </div>
 
-  <!-- ✅ Footer now works perfectly -->
-  <footer>
-    <p>&copy; 2026 Bush Teaching Assistant</p>
-        <p>Connecting learners and educators</p>
-        <p>Developed by Emmanuel Asiamah Amponsah</p>
-  </footer>
+  <!-- QUIZ -->
+  <div id="quiz-container" style="display:none;"></div>
+</div>
+
+<footer>
+  <p>&copy; 2026 Bush Teaching Assistant</p>
+</footer>
 
 <script>
-// (UNCHANGED JS — exactly your original)
 let allQuestions = [];
 let currentIndex = 0;
 let score = 0;
-let firstAttemptScore = null;
-let hasRestarted = false;
 
-async function loadQuestions(isRestart = false) {
+async function loadQuestions() {
+  const loading = document.getElementById('loading');
+  const quiz = document.getElementById('quiz-container');
+
+  loading.style.display = 'block';
+  quiz.style.display = 'none';
+
   try {
     const response = await fetch('https://bush-backend.onrender.com/questions');
-    if (!response.ok) throw new Error('Failed to fetch questions. Contact Author');
-
     const data = await response.json();
-    if (data.status === "success") {
-      allQuestions = data.questions;
-      currentIndex = 0;
-      score = 0;
 
-      if (isRestart) {
-        hasRestarted = true;
-        document.getElementById('restart-message').style.display = 'block';
-      } else {
-        firstAttemptScore = null;
-      }
+    allQuestions = data.questions;
 
-      showCurrentQuestion();
-    }
+    loading.style.display = 'none';
+    quiz.style.display = 'block';
+
+    showQuestion();
+
   } catch (err) {
-    document.getElementById('quiz-container').innerHTML = 
-      `<p style="color:red; text-align:center; font-size:1.3rem;">
-        Cannot connect to Flask server.<br>
-        <a class="a1" href="https://wa.me/233554454161" target="_blank">
-        Contact Author (Bush)</a>
-      </p>`;
+    loading.style.display = 'none';
+    quiz.style.display = 'block';
+
+    quiz.innerHTML = `<p style="color:red;text-align:center;">
+      Failed to load questions.
+    </p>`;
   }
 }
 
-function showCurrentQuestion() {
-  if (currentIndex >= allQuestions.length) {
-    showFinalResult();
-    return;
-  }
-
+function showQuestion() {
   const q = allQuestions[currentIndex];
-  const container = document.getElementById('quiz-container');
-  document.getElementById('progress').textContent = `Question ${currentIndex + 1} of ${allQuestions.length}`;
+
+  document.getElementById('progress').textContent =
+    `Question ${currentIndex + 1} of ${allQuestions.length}`;
 
   let optionsHTML = '';
-  q.options.forEach(option => {
-    optionsHTML += `<button>${option}</button>`;
+  q.options.forEach(opt => {
+    optionsHTML += `<button>${opt}</button>`;
   });
 
-  container.innerHTML = `
+  document.getElementById('quiz-container').innerHTML = `
     <div class="question-card">
       <h2>${q.question}</h2>
-      <div class="options" id="options-container">
-        ${optionsHTML}
-      </div>
+      <div class="options">${optionsHTML}</div>
       <div id="feedback"></div>
-      <div id="explanation" style="display: none;"></div>
-      <button id="next-btn" style="display: none;" onclick="nextQuestion()">Next Question →</button>
+      <div id="explanation" style="display:none;"></div>
+      <button id="next-btn" style="display:none;" onclick="next()">Next</button>
     </div>
   `;
 
-  const buttons = document.querySelectorAll('#options-container button');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => handleAnswer(button, q));
+  document.querySelectorAll('.options button').forEach(btn => {
+    btn.onclick = () => handleAnswer(btn, q);
   });
 }
 
-function handleAnswer(clickedButton, currentQ) {
-  const selectedText = clickedButton.textContent.trim();
-  const userLetter = selectedText.charAt(0);
-  const correctLetter = currentQ.answer;
+function handleAnswer(btn, q) {
+  const selected = btn.textContent.charAt(0);
+  const correct = q.answer;
 
-  document.querySelectorAll('#options-container button').forEach(btn => {
-    btn.disabled = true;
-    const letter = btn.textContent.trim().charAt(0);
+  document.querySelectorAll('.options button').forEach(b => {
+    b.disabled = true;
 
-    if (letter === correctLetter) btn.classList.add('correct');
-    if (btn === clickedButton && letter !== correctLetter) btn.classList.add('wrong');
+    if (b.textContent.charAt(0) === correct) {
+      b.classList.add('correct');
+    }
+
+    if (b === btn && selected !== correct) {
+      b.classList.add('wrong');
+    }
   });
 
-  const feedbackEl = document.getElementById('feedback');
-  if (userLetter === correctLetter) {
+  const feedback = document.getElementById('feedback');
+
+  if (selected === correct) {
     score++;
-    feedbackEl.innerHTML = `<span style="color: #00ff9d;">✓ Correct!</span>`;
+    feedback.innerHTML = `<span style="color:#00ff9d;">✓ Correct!</span>`;
   } else {
-    feedbackEl.innerHTML = `<span style="color: #ff4d6d;">✗ Wrong! The correct answer is ${correctLetter}.</span>`;
+    feedback.innerHTML = `<span style="color:#ff4d6d;">✗ Wrong!</span>`;
   }
 
-  const expEl = document.getElementById('explanation');
-  expEl.innerHTML = `<strong>Explanation:</strong><br>${currentQ.explanation}`;
-  expEl.style.display = 'block';
+  const exp = document.getElementById('explanation');
+  exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation}`;
+  exp.style.display = 'block';
 
   document.getElementById('next-btn').style.display = 'block';
 }
 
-function nextQuestion() {
+function next() {
   currentIndex++;
-  showCurrentQuestion();
-}
-
-function showFinalResult() {
-  const total = allQuestions.length;
-  const percentage = Math.round((score / total) * 100);
-
-  if (firstAttemptScore === null) {
-    firstAttemptScore = score;
-  }
-
-  let html = `
-    <div class="question-card result-card">
-      <h2>Quiz Completed!</h2>
-      <div class="final-score">${score} / ${total}</div>
-      <div class="percentage">${percentage}%</div>
-      <div>
-        <a class="a1" href="https://wa.me/233554454161" target="_blank">
-        Take Screenshot of this page and click here to send your score to Bush</a> 
-      </div>
-  `;
-
-  if (hasRestarted && firstAttemptScore !== null) {
-    const firstPercent = Math.round((firstAttemptScore / total) * 100);
-    html += `
-      <div class="first-attempt-box">
-        <p>First Attempt Score</p>
-        <strong>${firstAttemptScore} / ${total} (${firstPercent}%)</strong>
-      </div>
-    `;
-  }
-
-  html += `
-      <button onclick="restartQuiz()" style="padding:16px 50px; font-size:1.2rem; margin-top:30px; cursor: pointer;">
-        Restart Quiz
-      </button>
-    </div>
-    <div>
-      <a class="a1" href="contactpage.html">Contact Author</a>
-    </div>
-  `;
-
-  document.getElementById('quiz-container').innerHTML = html;
-
-  if (hasRestarted) {
-    document.getElementById('restart-message').style.display = 'block';
+  if(currentIndex >= allQuestions.length){
+    document.getElementById('quiz-container').innerHTML =
+      `<h2>Score: ${score}/${allQuestions.length}</h2>`;
+  } else {
+    showQuestion();
   }
 }
 
-function restartQuiz() {
-  loadQuestions(true);
-}
-
-window.onload = () => loadQuestions(false);
+window.onload = loadQuestions;
 </script>
 
 </body>
