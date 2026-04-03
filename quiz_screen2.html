@@ -49,7 +49,7 @@
       margin-bottom: 40px;
     }
 
-    /* 🔥 LOADING */
+    /* LOADING */
     #loading {
       text-align: center;
       margin-top: 80px;
@@ -137,17 +137,50 @@
       line-height: 1.6;
     }
 
-    #next-btn {
-      display: block;
-      margin: 25px auto 0;
-      padding: 14px 40px;
-      font-size: 1.1rem;
-      background: linear-gradient(to right, #00ffea, #00b8d4);
-      color: #000;
-      border: none;
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    #next-btn, #skip-btn {
+      padding: 14px 30px;
+      font-size: 1rem;
       border-radius: 50px;
       cursor: pointer;
       font-weight: bold;
+      border: none;
+    }
+
+    #next-btn {
+      background: linear-gradient(to right, #00ffea, #00b8d4);
+      color: #000;
+    }
+
+    #skip-btn {
+      background: linear-gradient(to right, #ff9800, #ff5722);
+      color: white;
+    }
+
+    .result-box {
+      text-align: center;
+      padding: 40px;
+    }
+
+    .final-score {
+      font-size: 4rem;
+      font-weight: bold;
+      margin: 15px 0;
+      background: linear-gradient(to right, #00ffea, #ff00cc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .percentage {
+      font-size: 2rem;
+      color: #00ff9d;
+      margin-bottom: 20px;
     }
 
     footer {
@@ -163,11 +196,11 @@
 
 <div class="container">
   <h1>BTA Chemistry Quiz</h1>
-  <p class="subtitle">Test your knowledge in Organic Chemistry(alkanes)</p>
+  <p class="subtitle">Test your knowledge in Organic Chemistry (alkanes)</p>
 
   <p id="progress"></p>
 
-  <!-- ✅ LOADING -->
+  <!-- LOADING -->
   <div id="loading">
     <div class="spinner"></div>
     <p>Loading questions... please wait</p>
@@ -231,8 +264,11 @@ function showQuestion() {
       <div class="options">${optionsHTML}</div>
       <div id="feedback"></div>
       <div id="explanation" style="display:none;"></div>
-      <button id="next-btn" style="display:none;" onclick="next()">Next Question
-      </button>
+
+      <div class="btn-group">
+        <button id="next-btn" style="display:none;" onclick="next()">Next</button>
+        <button id="skip-btn" onclick="skip()">Skip →</button>
+      </div>
     </div>
   `;
 
@@ -270,17 +306,39 @@ function handleAnswer(btn, q) {
   exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation}`;
   exp.style.display = 'block';
 
-  document.getElementById('next-btn').style.display = 'block';
+  document.getElementById('next-btn').style.display = 'inline-block';
+}
+
+function skip() {
+  currentIndex++;
+  if (currentIndex >= allQuestions.length) {
+    showScore();
+  } else {
+    showQuestion();
+  }
 }
 
 function next() {
   currentIndex++;
-  if(currentIndex >= allQuestions.length){
-    document.getElementById('quiz-container').innerHTML =
-      `<h2>Score: ${score}/${allQuestions.length}</h2>`;
+  if (currentIndex >= allQuestions.length) {
+    showScore();
   } else {
     showQuestion();
   }
+}
+
+function showScore() {
+  const total = allQuestions.length;
+  const percent = Math.round((score / total) * 100);
+
+  document.getElementById('quiz-container').innerHTML = `
+    <div class="question-card result-box">
+      <h2>Quiz Completed!</h2>
+      <div class="final-score">${score} / ${total}</div>
+      <div class="percentage">${percent}%</div>
+      <p>Well done! Keep practicing to improve your score.</p>
+    </div>
+  `;
 }
 
 window.onload = loadQuestions;
