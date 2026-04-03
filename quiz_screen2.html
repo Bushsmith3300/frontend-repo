@@ -194,7 +194,7 @@ async function loadQuestions() {
   quiz.style.display = 'none';
 
   try {
-    const response = await fetch('https://bush-backend.onrender.com/questions');
+    const response = await fetch('https://bush-backend.onrender.com/organic_questions');
     const data = await response.json();
 
     allQuestions = data.questions;
