@@ -229,7 +229,7 @@ async function loadQuestions() {
   const loadingEl = document.getElementById('loading');
   const quizEl = document.getElementById('quiz-container');
 
-  loadingEl.style.display = 'block';  // always show spinner until loaded
+  loadingEl.style.display = 'block';
   quizEl.style.display = 'none';
 
   try {
@@ -237,14 +237,19 @@ async function loadQuestions() {
     if (!res.ok) throw new Error('Network response was not ok');
 
     const data = await res.json();
-    let questions = data.questions;
-
-    if (!questions || questions.length === 0) {
-      throw new Error('No questions found');
+    if (!data.questions || !Array.isArray(data.questions) || data.questions.length === 0) {
+      throw new Error('No questions found in backend response');
     }
 
-    shuffleArray(questions);
-    allQuestions = questions.slice(0, 30);
+    // Validate and sanitize each question
+    const validQuestions = data.questions.filter(q => 
+      q.question && Array.isArray(q.options) && q.options.length > 0 && q.answer
+    );
+
+    if (validQuestions.length === 0) throw new Error('No valid questions found');
+
+    shuffleArray(validQuestions);
+    allQuestions = validQuestions.slice(0, 30);
     userAnswers = new Array(allQuestions.length).fill(null);
 
     loadingEl.style.display = 'none';
@@ -264,7 +269,6 @@ async function loadQuestions() {
 
 function showQuestion() {
   const q = allQuestions[currentIndex];
-
   document.getElementById('progress').textContent =
     `Question ${currentIndex + 1} of ${allQuestions.length}`;
 
@@ -279,7 +283,6 @@ function showQuestion() {
       <div class="options">${optionsHTML}</div>
       <div id="feedback"></div>
       <div id="explanation"></div>
-
       <div class="btn-group">
         <button id="prev-btn" onclick="prev()">← Previous</button>
         <button id="skip-btn" onclick="skip()">Skip →</button>
@@ -289,12 +292,9 @@ function showQuestion() {
   `;
 
   const buttons = document.querySelectorAll('.options button');
+  buttons.forEach(btn => btn.onclick = () => selectAnswer(btn, q));
 
-  buttons.forEach(btn => {
-    btn.onclick = () => selectAnswer(btn, q);
-  });
-
-  // Disable previous/skip buttons when needed
+  // Disable buttons if at start or end
   if (currentIndex === 0) {
     document.getElementById('prev-btn').disabled = true;
     document.getElementById('prev-btn').style.opacity = 0.5;
@@ -304,7 +304,7 @@ function showQuestion() {
     document.getElementById('skip-btn').style.opacity = 0.5;
   }
 
-  // Restore previous answers
+  // Restore previous answers if any
   if (userAnswers[currentIndex] !== null) {
     const saved = userAnswers[currentIndex];
     buttons.forEach(btn => {
@@ -325,18 +325,14 @@ function selectAnswer(btn, q) {
   document.querySelectorAll('.options button').forEach(b => {
     b.disabled = true;
     const letter = b.textContent.charAt(0);
-
     if (letter === q.answer) b.classList.add('correct');
     if (b === btn && selected !== q.answer) b.classList.add('wrong');
   });
 
   const feedback = document.getElementById('feedback');
-
-  if (selected === q.answer) {
-    feedback.innerHTML = `<span style="color:#00ff9d;">✓ Correct!</span>`;
-  } else {
-    feedback.innerHTML = `<span style="color:#ff4d6d;">✗ Wrong!</span>`;
-  }
+  feedback.innerHTML = selected === q.answer 
+    ? `<span style="color:#00ff9d;">✓ Correct!</span>`
+    : `<span style="color:#ff4d6d;">✗ Wrong!</span>`;
 
   showExplanation(q);
   document.getElementById('next-btn').style.display = 'inline-block';
@@ -344,7 +340,7 @@ function selectAnswer(btn, q) {
 
 function showExplanation(q) {
   const exp = document.getElementById('explanation');
-  exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation}`;
+  exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation || 'No explanation provided.'}`;
   exp.style.display = 'block';
 }
 
