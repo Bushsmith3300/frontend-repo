@@ -41,9 +41,17 @@
       text-align: center;
       margin-bottom: 40px;
       opacity: 0.85;
+      font-size: 1.1rem;
     }
 
+    /* LOADING */
     #loading { text-align:center; margin-top:80px; }
+
+    #loading p {
+      margin-top: 15px;
+      font-size: 1.3rem;
+      color: #00ffea;
+    }
 
     .spinner {
       width: 65px;
@@ -59,6 +67,8 @@
 
     .question-card {
       background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255,255,255,0.15);
       padding: 35px;
       border-radius: 20px;
       margin-bottom: 30px;
@@ -68,44 +78,79 @@
       text-align:center;
       font-size:1.3rem;
       margin-bottom:20px;
+      font-weight:600;
       color:#00ffea;
     }
 
-    .options button {
-      width:100%;
-      padding:16px;
-      margin:10px 0;
-      border-radius:12px;
-      background: rgba(255,255,255,0.07);
-      color:white;
-      border:none;
-      cursor:pointer;
+    h2 {
+      font-size: 1.7rem;
+      line-height: 1.6;
+      margin-bottom: 35px;
+      letter-spacing: 0.3px;
     }
 
-    .options button.correct { background:#00ff9d !important; color:#000; }
-    .options button.wrong { background:#ff4d6d !important; }
+    /* OPTIONS */
+    .options button {
+      width: 100%;
+      padding: 18px 22px;
+      margin: 14px 0;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.07);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.15);
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.25s ease;
+    }
+
+    .options button:hover:not(:disabled) {
+      background: rgba(255,255,255,0.15);
+      border-color: #00ffea;
+      transform: translateX(6px);
+      box-shadow: 0 0 12px rgba(0,255,234,0.4);
+    }
+
+    .options button::first-letter {
+      font-weight: bold;
+      color: #00ffea;
+    }
+
+    .options button.correct {
+      background: #00ff9d !important;
+      color: #000;
+      font-weight: bold;
+    }
+
+    .options button.wrong {
+      background: #ff4d6d !important;
+      color: white;
+    }
 
     #feedback {
-      text-align:center;
-      margin:20px 0;
-      font-size:1.4rem;
-      font-weight:bold;
+      margin: 25px 0;
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: center;
     }
 
     #explanation {
       background: rgba(255,255,255,0.1);
-      padding:20px;
-      border-left:6px solid #00ffea;
-      margin-top:20px;
-      display:none;
+      padding: 22px;
+      border-radius: 14px;
+      border-left: 6px solid #00ffea;
+      margin: 25px 0;
+      line-height: 1.6;
+      display: none;
     }
 
     .btn-group {
       display:flex;
       justify-content:center;
       gap:12px;
-      margin-top:20px;
       flex-wrap: wrap;
+      margin-top:20px;
     }
 
     button {
@@ -122,14 +167,20 @@
 
     .result-box {
       text-align:center;
+      padding:40px;
     }
 
     .final-score {
       font-size:4rem;
-      margin:10px 0;
+      margin:15px 0;
       background: linear-gradient(to right, #00ffea, #ff00cc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+
+    .percentage {
+      font-size: 2rem;
+      color: #00ff9d;
     }
 
     footer {
@@ -151,7 +202,7 @@
 
   <div id="loading">
     <div class="spinner"></div>
-    <p>Loading questions...</p>
+    <p>Loading questions... please wait</p>
   </div>
 
   <div id="quiz-container" style="display:none;"></div>
@@ -167,16 +218,21 @@ let currentIndex = 0;
 let userAnswers = [];
 
 async function loadQuestions() {
-  const res = await fetch('https://bush-backend.onrender.com/questions');
-  const data = await res.json();
+  try {
+    const res = await fetch('https://bush-backend.onrender.com/questions');
+    const data = await res.json();
 
-  allQuestions = data.questions;
-  userAnswers = new Array(allQuestions.length).fill(null);
+    allQuestions = data.questions;
+    userAnswers = new Array(allQuestions.length).fill(null);
 
-  document.getElementById('loading').style.display = 'none';
-  document.getElementById('quiz-container').style.display = 'block';
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('quiz-container').style.display = 'block';
 
-  showQuestion();
+    showQuestion();
+  } catch {
+    document.getElementById('loading').innerHTML =
+      "<p style='color:red;'>Failed to load questions</p>";
+  }
 }
 
 function showQuestion() {
@@ -211,7 +267,7 @@ function showQuestion() {
     btn.onclick = () => selectAnswer(btn, q);
   });
 
-  // restore previous answer
+  // restore answer
   if (userAnswers[currentIndex] !== null) {
     const saved = userAnswers[currentIndex];
     buttons.forEach(btn => {
@@ -288,7 +344,7 @@ function showScore() {
     <div class="question-card result-box">
       <h2>Quiz Completed!</h2>
       <div class="final-score">${score}/${total}</div>
-      <p style="font-size:1.5rem;color:#00ff9d;">${percent}%</p>
+      <div class="percentage">${percent}%</div>
     </div>
   `;
 }
