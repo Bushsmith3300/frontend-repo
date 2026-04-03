@@ -6,16 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Standard Chemistry Questions for Ghanaian SHS Learners!">
   <meta name="author" content="Emmanuel Asiamah Amponsah">
-  <meta name="keywords" content="chemistry, past questions, WAEC, teaching assistant, asiamah, learn">
   
   <title>Chemistry Quiz</title>
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin:0; padding:0; box-sizing:border-box; }
 
     body {
       font-family: 'Segoe UI', Arial, sans-serif;
@@ -44,150 +39,104 @@
 
     .subtitle {
       text-align: center;
-      font-size: 1.1rem;
-      opacity: 0.85;
       margin-bottom: 40px;
+      opacity: 0.85;
     }
 
-    /* LOADING */
-    #loading {
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    #loading p {
-      margin-top: 15px;
-      font-size: 1.3rem;
-      color: #00ffea;
-      font-weight: 500;
-    }
+    #loading { text-align:center; margin-top:80px; }
 
     .spinner {
       width: 65px;
       height: 65px;
-      margin: auto;
-      border: 6px solid rgba(255,255,255,0.15);
-      border-top: 6px solid #00ffea;
-      border-radius: 50%;
+      margin:auto;
+      border:6px solid rgba(255,255,255,0.15);
+      border-top:6px solid #00ffea;
+      border-radius:50%;
       animation: spin 1s linear infinite;
     }
 
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
+    @keyframes spin { to { transform: rotate(360deg); } }
 
     .question-card {
-      background: rgba(255, 255, 255, 0.08);
-      backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255,255,255,0.08);
       padding: 35px;
       border-radius: 20px;
       margin-bottom: 30px;
     }
 
     #progress {
-      text-align: center;
-      font-size: 1.3rem;
-      margin-bottom: 20px;
-      font-weight: 600;
-      color: #00ffea;
-    }
-
-    h2 {
-      font-size: 1.45rem;
-      margin-bottom: 30px;
+      text-align:center;
+      font-size:1.3rem;
+      margin-bottom:20px;
+      color:#00ffea;
     }
 
     .options button {
-      width: 100%;
-      padding: 16px 20px;
-      margin: 12px 0;
-      font-size: 1.05rem;
-      border-radius: 12px;
-      background: rgba(255, 255, 255, 0.07);
-      color: white;
-      cursor: pointer;
-      border: none;
+      width:100%;
+      padding:16px;
+      margin:10px 0;
+      border-radius:12px;
+      background: rgba(255,255,255,0.07);
+      color:white;
+      border:none;
+      cursor:pointer;
     }
 
-    .options button.correct {
-      background: #00ff9d !important;
-      color: #000;
-      font-weight: bold;
-    }
-
-    .options button.wrong {
-      background: #ff4d6d !important;
-      color: white;
-    }
+    .options button.correct { background:#00ff9d !important; color:#000; }
+    .options button.wrong { background:#ff4d6d !important; }
 
     #feedback {
-      margin: 25px 0;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-align: center;
+      text-align:center;
+      margin:20px 0;
+      font-size:1.4rem;
+      font-weight:bold;
     }
 
     #explanation {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 22px;
-      border-radius: 14px;
-      border-left: 6px solid #00ffea;
-      margin: 25px 0;
-      line-height: 1.6;
+      background: rgba(255,255,255,0.1);
+      padding:20px;
+      border-left:6px solid #00ffea;
+      margin-top:20px;
+      display:none;
     }
 
     .btn-group {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      margin-top:20px;
+      flex-wrap: wrap;
     }
 
-    #next-btn, #skip-btn {
-      padding: 14px 30px;
-      font-size: 1rem;
-      border-radius: 50px;
-      cursor: pointer;
-      font-weight: bold;
-      border: none;
+    button {
+      padding:12px 20px;
+      border:none;
+      border-radius:30px;
+      cursor:pointer;
+      font-weight:bold;
     }
 
-    #next-btn {
-      background: linear-gradient(to right, #00ffea, #00b8d4);
-      color: #000;
-    }
-
-    #skip-btn {
-      background: linear-gradient(to right, #ff9800, #ff5722);
-      color: white;
-    }
+    #prev-btn { background:#888; color:white; }
+    #next-btn { background:#00ffea; color:black; }
+    #skip-btn { background:#ff9800; color:white; }
 
     .result-box {
-      text-align: center;
-      padding: 40px;
+      text-align:center;
     }
 
     .final-score {
-      font-size: 4rem;
-      font-weight: bold;
-      margin: 15px 0;
+      font-size:4rem;
+      margin:10px 0;
       background: linear-gradient(to right, #00ffea, #ff00cc);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .percentage {
-      font-size: 2rem;
-      color: #00ff9d;
-      margin-bottom: 20px;
-    }
-
     footer {
-      background: #0f172a;
-      text-align: center;
-      padding: 20px;
-      margin-top: auto;
+      background:#0f172a;
+      text-align:center;
+      padding:20px;
+      margin-top:auto;
     }
   </style>
 </head>
@@ -200,13 +149,11 @@
 
   <p id="progress"></p>
 
-  <!-- LOADING -->
   <div id="loading">
     <div class="spinner"></div>
-    <p>Loading questions... please wait</p>
+    <p>Loading questions...</p>
   </div>
 
-  <!-- QUIZ -->
   <div id="quiz-container" style="display:none;"></div>
 </div>
 
@@ -217,34 +164,19 @@
 <script>
 let allQuestions = [];
 let currentIndex = 0;
-let score = 0;
+let userAnswers = [];
 
 async function loadQuestions() {
-  const loading = document.getElementById('loading');
-  const quiz = document.getElementById('quiz-container');
+  const res = await fetch('https://bush-backend.onrender.com/questions');
+  const data = await res.json();
 
-  loading.style.display = 'block';
-  quiz.style.display = 'none';
+  allQuestions = data.questions;
+  userAnswers = new Array(allQuestions.length).fill(null);
 
-  try {
-    const response = await fetch('https://bush-backend.onrender.com/questions');
-    const data = await response.json();
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('quiz-container').style.display = 'block';
 
-    allQuestions = data.questions;
-
-    loading.style.display = 'none';
-    quiz.style.display = 'block';
-
-    showQuestion();
-
-  } catch (err) {
-    loading.style.display = 'none';
-    quiz.style.display = 'block';
-
-    quiz.innerHTML = `<p style="color:red;text-align:center;">
-      Failed to load questions.
-    </p>`;
-  }
+  showQuestion();
 }
 
 function showQuestion() {
@@ -263,80 +195,100 @@ function showQuestion() {
       <h2>${q.question}</h2>
       <div class="options">${optionsHTML}</div>
       <div id="feedback"></div>
-      <div id="explanation" style="display:none;"></div>
+      <div id="explanation"></div>
 
       <div class="btn-group">
-        <button id="next-btn" style="display:none;" onclick="next()">Next</button>
+        <button id="prev-btn" onclick="prev()">← Previous</button>
         <button id="skip-btn" onclick="skip()">Skip →</button>
+        <button id="next-btn" onclick="next()" style="display:none;">Next</button>
       </div>
     </div>
   `;
 
-  document.querySelectorAll('.options button').forEach(btn => {
-    btn.onclick = () => handleAnswer(btn, q);
+  const buttons = document.querySelectorAll('.options button');
+
+  buttons.forEach(btn => {
+    btn.onclick = () => selectAnswer(btn, q);
   });
+
+  // restore previous answer
+  if (userAnswers[currentIndex] !== null) {
+    const saved = userAnswers[currentIndex];
+    buttons.forEach(btn => {
+      const letter = btn.textContent.charAt(0);
+      if (letter === q.answer) btn.classList.add('correct');
+      if (letter === saved && saved !== q.answer) btn.classList.add('wrong');
+      btn.disabled = true;
+    });
+
+    showExplanation(q);
+    document.getElementById('next-btn').style.display = 'inline-block';
+  }
 }
 
-function handleAnswer(btn, q) {
+function selectAnswer(btn, q) {
   const selected = btn.textContent.charAt(0);
-  const correct = q.answer;
+  userAnswers[currentIndex] = selected;
 
   document.querySelectorAll('.options button').forEach(b => {
     b.disabled = true;
+    const letter = b.textContent.charAt(0);
 
-    if (b.textContent.charAt(0) === correct) {
-      b.classList.add('correct');
-    }
-
-    if (b === btn && selected !== correct) {
-      b.classList.add('wrong');
-    }
+    if (letter === q.answer) b.classList.add('correct');
+    if (b === btn && selected !== q.answer) b.classList.add('wrong');
   });
 
   const feedback = document.getElementById('feedback');
 
-  if (selected === correct) {
-    score++;
+  if (selected === q.answer) {
     feedback.innerHTML = `<span style="color:#00ff9d;">✓ Correct!</span>`;
   } else {
     feedback.innerHTML = `<span style="color:#ff4d6d;">✗ Wrong!</span>`;
   }
 
-  const exp = document.getElementById('explanation');
-  exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation}`;
-  exp.style.display = 'block';
-
+  showExplanation(q);
   document.getElementById('next-btn').style.display = 'inline-block';
 }
 
-function skip() {
-  currentIndex++;
-  if (currentIndex >= allQuestions.length) {
-    showScore();
-  } else {
-    showQuestion();
-  }
+function showExplanation(q) {
+  const exp = document.getElementById('explanation');
+  exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation}`;
+  exp.style.display = 'block';
 }
 
 function next() {
   currentIndex++;
-  if (currentIndex >= allQuestions.length) {
-    showScore();
-  } else {
+  if (currentIndex >= allQuestions.length) return showScore();
+  showQuestion();
+}
+
+function prev() {
+  if (currentIndex > 0) {
+    currentIndex--;
     showQuestion();
   }
 }
 
+function skip() {
+  currentIndex++;
+  if (currentIndex >= allQuestions.length) return showScore();
+  showQuestion();
+}
+
 function showScore() {
+  let score = 0;
+  allQuestions.forEach((q, i) => {
+    if (userAnswers[i] === q.answer) score++;
+  });
+
   const total = allQuestions.length;
   const percent = Math.round((score / total) * 100);
 
   document.getElementById('quiz-container').innerHTML = `
     <div class="question-card result-box">
       <h2>Quiz Completed!</h2>
-      <div class="final-score">${score} / ${total}</div>
-      <div class="percentage">${percent}%</div>
-      <p>Well done! Keep practicing to improve your score.</p>
+      <div class="final-score">${score}/${total}</div>
+      <p style="font-size:1.5rem;color:#00ff9d;">${percent}%</p>
     </div>
   `;
 }
