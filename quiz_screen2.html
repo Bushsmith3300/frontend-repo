@@ -190,6 +190,33 @@
       cursor: pointer;
       font-weight: bold;
     }
+
+      .nav-links {
+      margin: 40px 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      background: rgba(255, 255, 255, 0.1);
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .nav-links a:hover {
+      background: rgba(0, 255, 234, 0.2);
+      border-color: #00ffea;
+      transform: translateY(-3px);
+    }
+
+    
   </style>
 </head>
 
@@ -377,6 +404,8 @@ function showScore() {
       <h2>Quiz Completed!</h2>
       <div class="final-score">${score}/${total}</div>
       <div class="percentage">${percent}%</div>
+      <a class"nav-links" href="https://wa.me/233554454161 target="_blank">Take a snapshot of
+       this screen and click here to send your score to Bush</a>
     </div>
   `;
 }
