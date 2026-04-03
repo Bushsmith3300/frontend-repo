@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Standard Chemistry Questions for Ghanaian SHS Learners!">
   <meta name="author" content="Emmanuel Asiamah Amponsah">
-  
   <title>Chemistry Quiz</title>
 
   <style>
@@ -182,6 +180,16 @@
       padding:20px;
       margin-top:auto;
     }
+
+    #retry-btn {
+      margin-top: 15px;
+      background: #ff4d6d;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
 </head>
 
@@ -206,8 +214,6 @@
 </footer>
 
 <script>
-
-// ✅ Shuffle function
 function shuffleArray(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -220,28 +226,39 @@ let currentIndex = 0;
 let userAnswers = [];
 
 async function loadQuestions() {
+  const loadingEl = document.getElementById('loading');
+  const quizEl = document.getElementById('quiz-container');
+
+  loadingEl.style.display = 'block';  // always show spinner until loaded
+  quizEl.style.display = 'none';
+
   try {
     const res = await fetch('https://bush-backend.onrender.com/questions');
-    const data = await res.json();
+    if (!res.ok) throw new Error('Network response was not ok');
 
+    const data = await res.json();
     let questions = data.questions;
 
-    // ✅ Shuffle questions
+    if (!questions || questions.length === 0) {
+      throw new Error('No questions found');
+    }
+
     shuffleArray(questions);
-
-    // ✅ Select only 30 questions
     allQuestions = questions.slice(0, 30);
-
     userAnswers = new Array(allQuestions.length).fill(null);
 
-    document.getElementById('loading').style.display = 'none';
-    document.getElementById('quiz-container').style.display = 'block';
+    loadingEl.style.display = 'none';
+    quizEl.style.display = 'block';
 
     showQuestion();
 
-  } catch {
-    document.getElementById('loading').innerHTML =
-      "<p style='color:red;'>Failed to load questions</p>";
+  } catch (error) {
+    console.error(error);
+    loadingEl.innerHTML = `
+      <div class="spinner"></div>
+      <p style="color:red; margin-top: 15px;">Failed to load questions. Please check your connection.</p>
+      <button id="retry-btn" onclick="loadQuestions()">Retry</button>
+    `;
   }
 }
 
@@ -277,18 +294,17 @@ function showQuestion() {
     btn.onclick = () => selectAnswer(btn, q);
   });
 
-  // disable buttons when needed
+  // Disable previous/skip buttons when needed
   if (currentIndex === 0) {
     document.getElementById('prev-btn').disabled = true;
     document.getElementById('prev-btn').style.opacity = 0.5;
   }
-
   if (currentIndex === allQuestions.length - 1) {
     document.getElementById('skip-btn').disabled = true;
     document.getElementById('skip-btn').style.opacity = 0.5;
   }
 
-  // restore previous answers
+  // Restore previous answers
   if (userAnswers[currentIndex] !== null) {
     const saved = userAnswers[currentIndex];
     buttons.forEach(btn => {
@@ -297,7 +313,6 @@ function showQuestion() {
       if (letter === saved && saved !== q.answer) btn.classList.add('wrong');
       btn.disabled = true;
     });
-
     showExplanation(q);
     document.getElementById('next-btn').style.display = 'inline-block';
   }
@@ -371,7 +386,6 @@ function showScore() {
 }
 
 window.onload = loadQuestions;
-
 </script>
 
 </body>
