@@ -278,7 +278,7 @@ async function loadQuestions() {
     if (validQuestions.length === 0) throw new Error('No valid questions found');
 
     shuffleArray(validQuestions);
-    allQuestions = validQuestions.slice(0, 30);
+    allQuestions = validQuestions.slice(0, 50);
     userAnswers = new Array(allQuestions.length).fill(null);
 
     loadingEl.style.display = 'none';
