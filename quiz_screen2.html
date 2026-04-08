@@ -192,7 +192,7 @@
       font-weight: bold;
     }
 
-      a {
+    a {
       margin: 40px 0;
       display: flex;
       flex-wrap: wrap;
@@ -200,7 +200,7 @@
       gap: 15px;
     }
 
-      a {
+    a {
       background: rgba(255, 255, 255, 0.1);
       color: yellow;
       padding: 14px 28px;
@@ -211,13 +211,11 @@
       border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-      a:hover {
+    a:hover {
       background: rgba(0, 255, 234, 0.2);
       border-color: #00ffea;
       transform: translateY(-3px);
     }
-
-    
   </style>
 </head>
 
@@ -272,7 +270,6 @@ async function loadQuestions() {
       throw new Error('No questions found in backend response');
     }
 
-    // Validate and sanitize each question
     const validQuestions = data.questions.filter(q => 
       q.question && Array.isArray(q.options) && q.options.length > 0 && q.answer
     );
@@ -322,15 +319,12 @@ function showQuestion() {
         <button id="skip-btn" onclick="skip()">Skip →</button>
         <button id="next-btn" onclick="next()" style="display:none;">Next</button>
       </div>
-      
     </div>
-   
   `;
 
   const buttons = document.querySelectorAll('.options button');
   buttons.forEach(btn => btn.onclick = () => selectAnswer(btn, q));
 
-  // Disable buttons if at start or end
   if (currentIndex === 0) {
     document.getElementById('prev-btn').disabled = true;
     document.getElementById('prev-btn').style.opacity = 0.5;
@@ -340,7 +334,6 @@ function showQuestion() {
     document.getElementById('skip-btn').style.opacity = 0.5;
   }
 
-  // Restore previous answers if any
   if (userAnswers[currentIndex] !== null) {
     const saved = userAnswers[currentIndex];
     buttons.forEach(btn => {
@@ -378,7 +371,6 @@ function showExplanation(q) {
   const exp = document.getElementById('explanation');
   exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation || 'No explanation provided.'}`;
   exp.style.display = 'block';
-   
 }
 
 function next() {
@@ -412,13 +404,21 @@ function showScore() {
   document.getElementById('quiz-container').innerHTML = `
     <div class="question-card result-box">
       <h2>Quiz Completed!</h2>
-      <div class="final-score">${score}/${total}</div>
+      <div class="final-score">\( {score}/ \){total}</div>
       <div class="percentage">${percent}%</div>
     <a href="https://wa.me/233554454161" target="_blank">Take a snapshot of
        this screen and click here to send your score to Bush</a>
     </div>
   `;
 }
+
+// Scroll to top when Next button is clicked
+document.addEventListener('click', function(e) {
+  if (e.target && e.target.id === 'next-btn') {
+    window.scrollTo(0, 0);
+  }
+ 
+});
 
 window.onload = loadQuestions;
 </script>
