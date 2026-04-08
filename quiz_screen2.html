@@ -314,7 +314,6 @@ function showQuestion() {
       <div id="feedback"></div>
       
       <div id="explanation"></div>
-      <a id="explanation" href="https://wa.me/233554454161" target="_blank">Click here for further explanation from your teacher (Bush)</a> 
      
       <div class="btn-group">
         <button id="prev-btn" onclick="prev()">← Previous</button>
@@ -375,7 +374,8 @@ function selectAnswer(btn, q) {
 
 function showExplanation(q) {
   const exp = document.getElementById('explanation');
-  exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation || 'No explanation provided.'}`;
+  exp.innerHTML = `<strong>Explanation:</strong><br>${q.explanation<br><a href="https://wa.me/233554454161" target="_blank">
+  Click here for further explanation from your teacher (Bush)</a> || 'No explanation provided.'}`;
   exp.style.display = 'block';
    
 }
